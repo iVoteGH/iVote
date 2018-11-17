@@ -8,6 +8,8 @@ class App extends Component {
     this.state = {
       electionInstance: {},
       candidates: [],
+      account: '',
+      votedStatus: false
     }
     this.castVote = this.castVote.bind(this);
   }
@@ -17,6 +19,10 @@ class App extends Component {
     await this.instantiateContract();
     // Obtain the candidate count after.
     await this.getCandidateCount();
+    // Obtain the account of the user currently voting.
+    await this.getAccount();
+    // obtain the result of the account being in the voters mapping.
+    await this.getVoterState();
   }
 
   async instantiateContract(){
@@ -37,22 +43,32 @@ class App extends Component {
     for (let i = 1; i <= totalNumberOfCandidates; i++) {
       pendingCandidatesArr.push(this.state.electionInstance.candidates(i));
     }
-
     const candidates = await Promise.all(pendingCandidatesArr);
     this.setState({ candidates });
   }
 
-  castVote(idx) {
-    const { vote } = this.state.electionInstance;
-    window.web3.eth.getAccounts((err, [account]) => {
-      vote(idx, { from: account })
+  async getAccount() {
+    await window.web3.eth.getAccounts((err, [account]) => {
+      this.setState({ account })
     });
   }
 
+  async getVoterState() {
+    const { voters } = this.state.electionInstance;
+    let votedStatus = await voters(this.state.account);
+    this.setState({ votedStatus });
+  }
 
-
+  async castVote(idx) {
+    const { vote } = this.state.electionInstance;
+    await window.web3.eth.getAccounts((err, [account]) => {
+      vote(idx, { from: account })
+    });
+    this.getVoterState();
+  }
 
   render() {
+    console.log('STATE: ', this.state)
     return (
       <div >
         <nav>
