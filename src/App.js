@@ -1,31 +1,31 @@
-import React, { Component } from 'react'
-import { DisplayCandidates } from './Components'
-import Election from '../build/contracts/Election.json'
+import React, { Component } from 'react';
+import { DisplayCandidates } from './Components';
+import Election from '../build/contracts/Election.json';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       electionInstance: {},
       candidates: [],
       account: '',
-      votedStatus: false
-    }
+      votedStatus: null,
+    };
     this.castVote = this.castVote.bind(this);
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     // Obtain the Web3 object and instantiate the smart contract.
     await this.instantiateContract();
     // Obtain the candidate count after.
     await this.getCandidateCount();
     // Obtain the account of the user currently voting.
-    await this.getAccount();
+    // await this.getAccount();
     // obtain the result of the account being in the voters mapping.
     await this.getVoterState();
   }
 
-  async instantiateContract(){
+  async instantiateContract() {
     const contract = require('truffle-contract');
     const electionContract = contract(Election);
     // IMPORTANT:
@@ -49,30 +49,37 @@ class App extends Component {
 
   async getAccount() {
     await window.web3.eth.getAccounts((err, [account]) => {
-      this.setState({ account })
+      this.setState({ account });
     });
   }
 
   async getVoterState() {
     const { voters } = this.state.electionInstance;
+    await window.web3.eth.getAccounts((err, [account]) => {
+      this.setState({ account });
+    });
+    console.log(await voters(this.state.account));
     let votedStatus = await voters(this.state.account);
-    this.setState({ votedStatus });
+    await this.setState({ votedStatus });
+    // await this.setState({
+    //   votedStatus: this.state.electionInstance.voters(this.state.account),
+    // });
   }
 
   async castVote(idx) {
     const { vote } = this.state.electionInstance;
     await window.web3.eth.getAccounts((err, [account]) => {
-      vote(idx, { from: account })
+      vote(idx, { from: account });
     });
-    this.getVoterState();
+    // await this.getVoterState();
   }
 
   render() {
-    console.log('STATE: ', this.state)
+    console.log('STATE: ', this.state);
     return (
-      <div >
+      <div>
         <nav>
-            <a href="#">Election Page</a>
+          <a href="#">Election Page</a>
         </nav>
 
         <main>
@@ -80,13 +87,16 @@ class App extends Component {
             <div>
               <h1>Election of 1800</h1>
               <p>Federalists v Democratic-Republicans</p>
-              <DisplayCandidates candidates={this.state.candidates} castVote={this.castVote} />
+              <DisplayCandidates
+                candidates={this.state.candidates}
+                castVote={this.castVote}
+              />
             </div>
           </div>
         </main>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
