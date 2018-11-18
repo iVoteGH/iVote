@@ -19,9 +19,7 @@ class App extends Component {
     await this.instantiateContract();
     // Obtain the candidate count after.
     await this.getCandidateCount();
-    // Obtain the account of the user currently voting.
-    // await this.getAccount();
-    // obtain the result of the account being in the voters mapping.
+    // Obtain the result of the account being in the voters mapping.
     await this.getVoterState();
   }
 
@@ -47,12 +45,6 @@ class App extends Component {
     this.setState({ candidates });
   }
 
-  async getAccount() {
-    await window.web3.eth.getAccounts((err, [account]) => {
-      this.setState({ account });
-    });
-  }
-
   async getVoterState() {
     const { voters } = this.state.electionInstance;
     await window.web3.eth.getAccounts((err, [account]) => {
@@ -61,9 +53,6 @@ class App extends Component {
     console.log(await voters(this.state.account));
     let votedStatus = await voters(this.state.account);
     await this.setState({ votedStatus });
-    // await this.setState({
-    //   votedStatus: this.state.electionInstance.voters(this.state.account),
-    // });
   }
 
   async castVote(idx) {
@@ -71,7 +60,6 @@ class App extends Component {
     await window.web3.eth.getAccounts((err, [account]) => {
       vote(idx, { from: account });
     });
-    // await this.getVoterState();
   }
 
   render() {
