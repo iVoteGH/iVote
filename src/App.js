@@ -1,25 +1,29 @@
-import React, { Component } from 'react'
-import { DisplayCandidates } from './Components'
-import Election from '../build/contracts/Election.json'
+import React, { Component } from 'react';
+import { DisplayCandidates } from './Components';
+import Election from '../build/contracts/Election.json';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       electionInstance: {},
       candidates: [],
-    }
+      account: '',
+      votedStatus: null,
+    };
     this.castVote = this.castVote.bind(this);
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     // Obtain the Web3 object and instantiate the smart contract.
     await this.instantiateContract();
     // Obtain the candidate count after.
     await this.getCandidateCount();
+    // Obtain the result of the account being in the voters mapping.
+    await this.getVoterState();
   }
 
-  async instantiateContract(){
+  async instantiateContract() {
     const contract = require('truffle-contract');
     const electionContract = contract(Election);
     // IMPORTANT:
@@ -37,26 +41,33 @@ class App extends Component {
     for (let i = 1; i <= totalNumberOfCandidates; i++) {
       pendingCandidatesArr.push(this.state.electionInstance.candidates(i));
     }
-
     const candidates = await Promise.all(pendingCandidatesArr);
     this.setState({ candidates });
   }
 
-  castVote(idx) {
+  async getVoterState() {
+    const { voters } = this.state.electionInstance;
+    await window.web3.eth.getAccounts((err, [account]) => {
+      this.setState({ account });
+    });
+    console.log(await voters(this.state.account));
+    let votedStatus = await voters(this.state.account);
+    await this.setState({ votedStatus });
+  }
+
+  async castVote(idx) {
     const { vote } = this.state.electionInstance;
-    window.web3.eth.getAccounts((err, [account]) => {
-      vote(idx, { from: account })
+    await window.web3.eth.getAccounts((err, [account]) => {
+      vote(idx, { from: account });
     });
   }
 
-
-
-
   render() {
+    console.log('STATE: ', this.state);
     return (
-      <div >
+      <div>
         <nav>
-            <a href="#">Election Page</a>
+          <a href="#">Election Page</a>
         </nav>
 
         <main>
@@ -64,13 +75,16 @@ class App extends Component {
             <div>
               <h1>Election of 1800</h1>
               <p>Federalists v Democratic-Republicans</p>
-              <DisplayCandidates candidates={this.state.candidates} castVote={this.castVote} />
+              <DisplayCandidates
+                candidates={this.state.candidates}
+                castVote={this.castVote}
+              />
             </div>
           </div>
         </main>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
