@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HOC from "./HOC";
 
 const Info = props => {
-  console.log("candidates infoooo", this.state);
   return (
     <div>
       <h1>All Candidates</h1>
-      {this.state.elections.map(election => (
-        <Link to="/vote">
-          <div className="election-container">
-            <h1 key={election.name}>{election.name}</h1>
-          </div>
-        </Link>
+      {props.candidates.map(candidate => (
+        <div className="election-container">
+          <h1>{candidate[1]}</h1>
+        </div>
       ))}
+      <Link to="/vote">Vote!</Link>
     </div>
   );
 };
 
-export default Info;
+export default HOC(Info);

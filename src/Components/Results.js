@@ -1,18 +1,12 @@
 import React from "react";
 import { VictoryBar, VictoryAxis, VictoryChart } from "victory";
+import HOC from "./HOC";
 
 const Results = props => {
   let data = [];
-  props.candidates.map(candidate => {
-    data.push({ id: candidate[0]["c"][0], votes: candidate[2]["c"][0] });
-  });
-  //change to this.props
-
-  let data2 = [{ id: 1, votes: 3 }, { id: 2, votes: 1 }];
-  console.log("data2", data2);
-
-  // console.log("state", props.location.state.candidates);
-  console.log("data", data);
+  props.candidates.map(candidate =>
+    data.push({ id: candidate[0]["c"][0], votes: candidate[2]["c"][0] })
+  );
   return (
     <div>
       <h2>RESULTS!</h2>
@@ -27,4 +21,4 @@ const Results = props => {
   );
 };
 
-export default Results;
+export default HOC(Results);

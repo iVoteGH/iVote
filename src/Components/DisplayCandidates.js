@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 import { Table, thead, tr, th, tbody, td } from "react-bootstrap";
+import Waiting from "./Waiting";
+import HOC from "./HOC";
 
 class DisplayCandidates extends Component {
   constructor() {
     super();
     this.state = {
       selectedCandidate: null,
-      candidateName: null
+      candidateName: null,
+      cast: false
     };
   }
-
   render() {
-    console.log("candidyatessss", this.props.candidates);
-    console.log("state in display candidates", this.state);
     return (
       <div>
-        {this.props.candidates && this.props.candidates.length > 0 ? (
+        {this.state.cast ? (
+          <Waiting />
+        ) : this.props.candidates && this.props.candidates.length > 0 ? (
           <div>
             <Table responsive>
               <thead>
@@ -46,9 +48,10 @@ class DisplayCandidates extends Component {
             {this.state.selectedCandidate ? (
               <button
                 type="button"
-                onClick={() =>
-                  this.props.castVote(this.state.selectedCandidate)
-                }
+                onClick={() => {
+                  this.props.castVote(this.state.selectedCandidate);
+                  this.setState({ cast: true });
+                }}
               >
                 Vote for {this.state.candidateName}
               </button>
@@ -64,4 +67,4 @@ class DisplayCandidates extends Component {
   }
 }
 
-export default DisplayCandidates;
+export default HOC(DisplayCandidates);
