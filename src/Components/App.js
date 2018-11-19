@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { DisplayCandidates } from './Components';
-import Election from '../build/contracts/Election.json';
+import { DisplayCandidates, Waiting, Results } from '.';
+import Election from '../../build/contracts/Election.json';
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 
-class App extends Component {
+
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,6 +12,7 @@ class App extends Component {
       candidates: [],
       account: '',
       votedStatus: null,
+      cast: false
     };
     this.castVote = this.castVote.bind(this);
   }
@@ -59,32 +62,30 @@ class App extends Component {
     const { vote } = this.state.electionInstance;
     await window.web3.eth.getAccounts((err, [account]) => {
       vote(idx, { from: account });
-    });
+    })
+    this.setState({cast: true})
+
   }
 
-  render() {
-    console.log('STATE: ', this.state);
-    return (
-      <div>
-        <nav>
-          <a href="#">Election Page</a>
-        </nav>
 
-        <main>
-          <div>
-            <div>
-              <h1>Election of 1800</h1>
-              <p>Federalists v Democratic-Republicans</p>
-              <DisplayCandidates
+  render() {
+    console.log('STATE: ', this.state); 
+    return (
+   
+      <div>
+      {!this.state.cast ? 
+              (<DisplayCandidates
                 candidates={this.state.candidates}
                 castVote={this.castVote}
-              />
-            </div>
-          </div>
-        </main>
+              />) : 
+              <div>
+              <Waiting candidates={this.state.candidates}/>
+              </div>
+            }
       </div>
+     
     );
   }
 }
 
-export default App;
+// export default App;
