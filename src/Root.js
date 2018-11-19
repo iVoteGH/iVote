@@ -1,8 +1,8 @@
 import React from 'react'
 import {Route, Link, Switch, BrowserRouter as Router} from 'react-router-dom'
-import {App, Results, Main} from './Components'
+import {App, Results, Main, NewsAPI} from './Components'
+// NewsAPI to be connected
 
- 
 
 const Root = () => {
   return (
