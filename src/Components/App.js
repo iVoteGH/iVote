@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { DisplayCandidates } from './Components';
-import Election from '../build/contracts/Election.json';
+import { DisplayCandidates, Waiting, Results } from '.';
+import Election from '../../build/contracts/Election.json';
 
-class App extends Component {
+
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,6 +11,7 @@ class App extends Component {
       candidates: [],
       account: '',
       votedStatus: null,
+      cast: false
     };
     this.castVote = this.castVote.bind(this);
   }
@@ -47,44 +49,38 @@ class App extends Component {
 
   async getVoterState() {
     const { voters } = this.state.electionInstance;
-    await window.web3.eth.getAccounts((err, [account]) => {
-      this.setState({ account });
+    await window.web3.eth.getAccounts(async (err, [account]) => {
+      let votedStatus = await voters(account);
+      this.setState({ votedStatus, account });
     });
-    console.log(await voters(this.state.account));
-    let votedStatus = await voters(this.state.account);
-    await this.setState({ votedStatus });
   }
 
   async castVote(idx) {
     const { vote } = this.state.electionInstance;
     await window.web3.eth.getAccounts((err, [account]) => {
       vote(idx, { from: account });
-    });
+    })
+    this.setState({cast: true})
+
   }
 
+
   render() {
-    console.log('STATE: ', this.state);
+    //if account is '' --> need to have something that tells you to log into metamask and does not display ability
+    console.log('STATE: ', this.state); 
     return (
       <div>
-        <nav>
-          <a href="#">Election Page</a>
-        </nav>
-
-        <main>
-          <div>
-            <div>
-              <h1>Election of 1800</h1>
-              <p>Federalists v Democratic-Republicans</p>
-              <DisplayCandidates
+      {!this.state.cast ? 
+              (<DisplayCandidates
                 candidates={this.state.candidates}
                 castVote={this.castVote}
-              />
-            </div>
-          </div>
-        </main>
-      </div>
+              />) : 
+              <div>
+              <Waiting candidates={this.state.candidates}/>
+              </div>
+            }
+      </div>     
     );
   }
 }
 
-export default App;
