@@ -67,19 +67,19 @@ export default class App extends Component {
 
   render() {
     //if account is '' --> need to have something that tells you to log into metamask and does not display ability
-    console.log('STATE: ', this.state); 
+    console.log('STATE: ', this.state);
     return (
       <div>
-      {!this.state.cast ? 
+      {!this.state.cast ?
               (<DisplayCandidates
                 candidates={this.state.candidates}
                 castVote={this.castVote}
-              />) : 
+              />) :
               <div>
               <Waiting candidates={this.state.candidates}/>
               </div>
             }
-      </div>     
+      </div>
     );
   }
 }
