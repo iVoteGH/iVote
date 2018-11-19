@@ -1,8 +1,9 @@
-import DisplayCandidates from './DisplayCandidates'
-import Waiting from './Waiting'
-import Results from './Results'
-import App from './App'
-import Main from './Main'
-import NewsAPI from './NewsAPI'
+import DisplayCandidates from "./DisplayCandidates";
+import Waiting from "./Waiting";
+import Results from "./Results";
+import Vote from "./Vote";
+import Main from "./Main";
+import Info from "./Info";
+import NewsAPI from "./NewsAPI";
 
-export { DisplayCandidates, Waiting, Results, App, Main, NewsAPI }
+export { DisplayCandidates, Waiting, Results, Vote, Info, Main, NewsAPI };
