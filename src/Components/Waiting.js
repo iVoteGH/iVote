@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HOC from "./HOC";
 
 const Waiting = props => {
   return (
     <div>
       <p>
-        Thank you for selecting your candidate! Please checkout using Metamask
+        Thank you for selecting your candidate! Please checkout using MetaMask
       </p>
       <p>
         When you have finshed voting{" "}
-        <button type="button">
-          <Link to="/vote">Click to View Results</Link>
-        </button>
+        <Link to="/results">Click to View Results</Link>
       </p>
     </div>
   );
 };
 
-export default Waiting;
+export default HOC(Waiting);

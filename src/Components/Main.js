@@ -1,33 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import HOC from "./HOC";
 
-class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      elections: [
-        {
-          name: " Election of 1800"
-        }
-      ]
-      //something which populates the number of elections
-    };
-  }
+const Main = props => {
+  return (
+    <div>
+      <h1>All Elections</h1>
+      {props.elections.map(election => (
+        <Link to="/info">
+          <div className="election-container">
+            <h1 key={election.name}>{election.name}</h1>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <h1>All Elections</h1>
-        {this.state.elections.map(election => (
-          <Link to="/info">
-            <div className="election-container">
-              <h1 key={election.name}>{election.name}</h1>
-            </div>
-          </Link>
-        ))}
-      </div>
-    );
-  }
-}
-
-export default Main;
+export default HOC(Main);
