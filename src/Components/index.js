@@ -4,5 +4,6 @@ import Results from "./Results";
 import Vote from "./Vote";
 import Main from "./Main";
 import Info from "./Info";
+import NewsAPI from "./NewsAPI";
 
-export { DisplayCandidates, Waiting, Results, Vote, Info, Main };
+export { DisplayCandidates, Waiting, Results, Vote, Info, Main, NewsAPI };
