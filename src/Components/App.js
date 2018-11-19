@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { DisplayCandidates, Waiting, Results } from '.';
 import Election from '../../build/contracts/Election.json';
-import { BrowserRouter, Route, Switch} from 'react-router-dom'
 
 
 export default class App extends Component {
@@ -50,12 +49,10 @@ export default class App extends Component {
 
   async getVoterState() {
     const { voters } = this.state.electionInstance;
-    await window.web3.eth.getAccounts((err, [account]) => {
-      this.setState({ account });
+    await window.web3.eth.getAccounts(async (err, [account]) => {
+      let votedStatus = await voters(account);
+      this.setState({ votedStatus, account });
     });
-    console.log(await voters(this.state.account));
-    let votedStatus = await voters(this.state.account);
-    await this.setState({ votedStatus });
   }
 
   async castVote(idx) {
@@ -69,9 +66,9 @@ export default class App extends Component {
 
 
   render() {
+    //if account is '' --> need to have something that tells you to log into metamask and does not display ability
     console.log('STATE: ', this.state); 
     return (
-   
       <div>
       {!this.state.cast ? 
               (<DisplayCandidates
@@ -82,10 +79,8 @@ export default class App extends Component {
               <Waiting candidates={this.state.candidates}/>
               </div>
             }
-      </div>
-     
+      </div>     
     );
   }
 }
 
-// export default App;
