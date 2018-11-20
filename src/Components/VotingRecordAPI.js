@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { VictoryBar, VictoryStack } from 'victory';
 
 class VotingRecordAPI extends Component {
   constructor() {
@@ -45,10 +46,24 @@ class VotingRecordAPI extends Component {
       <div>
         <p>Votes Liberal: {this.state.votingComparisons.libAgree}%</p>
         <p>Votes Conservative: {this.state.votingComparisons.conAgree}%</p>
+        <div>
+        <VictoryStack horizontal
+            colorScale={["blue", "red"]}
+            height={100}
+            animate={{duration: 2000}}
+        >
+            <VictoryBar data={[{x:"a", y: this.state.votingComparisons.libAgree}]}/>
+            <VictoryBar data={[{x:"b", y: this.state.votingComparisons.conAgree}]}/>
+        </VictoryStack>
+        </div>
+
+
         <p>Recent Press Releases: </p>
-        {this.state.pressReleases.map((release, i) => ( 
-            <p key={i}><a href={release.url}>{release.title}</a></p>
-        ))}
+            <div className="press-releases-container">
+                {this.state.pressReleases.map((release, i) => ( 
+                    <p key={i} className="press-releases"><a href={release.url}>{release.title}</a></p>
+                ))}
+            </div>
       </div>
     );
   }

@@ -7,3 +7,15 @@
 .row {
   padding: 10px;
 }
+
+.press-releases { 
+    text-align: justify;
+}
+
+.press-releases-container { 
+    width: 600px; 
+}
+
+a { 
+    color: purple; 
+}
