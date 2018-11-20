@@ -5,13 +5,14 @@ class NewsAPI extends Component {
   constructor() {
     super();
     this.state = {
-      candidate: "Merkel",
+      candidate: "Kirsten Gillibrand",
       articles: [],
-      sources: []
+      sources: [], 
     };
     this.artToState = this.artToState.bind(this);
     this.changeSource = this.changeSource.bind(this);
   }
+
 
   changeSource(e) {
     let sources = this.state.sources;
@@ -41,6 +42,7 @@ class NewsAPI extends Component {
             <p>{art.source.name}</p>
           </div>
         ))}
+
       </div>
     );
   }

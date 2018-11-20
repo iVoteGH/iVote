@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
-import { Vote, Results, Info, Main, NewsAPI } from './Components';
+import { Vote, Results, Info, Main, NewsAPI, VotingRecordAPI } from './Components';
 
 const Root = () => {
   return (
