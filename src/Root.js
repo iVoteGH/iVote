@@ -1,17 +1,17 @@
-import React from "react";
-import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
-import { Vote, Results, Info, Main, NewsAPI } from "./Components";
+import React from 'react';
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Vote, Results, Info, Main, NewsAPI } from './Components';
 
 const Root = () => {
   return (
     <Router>
       <div id="root">
-        <nav>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <Link to="/">Election Page</Link>
         </nav>
         <main>
-          <div id="main-section">
-            <h1>Election of 1800</h1>
+          <div className="container text-center">
+            <h1>Duel of 1804</h1>
             <p>Federalists v Democratic-Republicans</p>
             <Switch>
               <Route exact path="/" component={Main} />
