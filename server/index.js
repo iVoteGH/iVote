@@ -5,6 +5,7 @@ const cors = require('cors');
 const PORT = process.env.Port || 8080;
 const NewsAPI = require('newsapi');
 const app = express();
+const axios = require('axios'); 
 
 module.exports = app;
 
@@ -36,4 +37,74 @@ app.get('/api/search', async (req, res, next) => {
     }
 });
 
+app.get('/api/memId/:state', async (req, res, next) => { 
+    //two candidate id's 
+    try {
+        const response = await axios({ 
+            url: `https://api.propublica.org/congress/v1/members/senate/${req.params.state}/current.json`, 
+            method: 'GET', 
+            dataType: 'json', 
+            headers: { 
+                'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY
+            }
+        }); 
+        //console.log(response.data); 
+        res.status(200).json(response.data); 
+    } catch (error) {
+        next(error); 
+    }
+})
+
+app.get('/api/compareLib/:memId', async (req, res, next) => { 
+    //two candidate id's 
+    try {
+        const response = await axios({ 
+            url: `https://api.propublica.org/congress/v1/members/${req.params.memId}/votes/S000033/114/senate.json`, 
+            method: 'GET', 
+            dataType: 'json', 
+            headers: { 
+                'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY
+            }
+        }); 
+        //console.log(response.data); 
+        res.status(200).json(response.data); 
+    } catch (error) {
+        next(error); 
+    }
+})
+
+app.get('/api/compareCon/:memId', async (req, res, next) => { 
+    //two candidate id's 
+
+    try {
+        const response = await axios({ 
+            url: `https://api.propublica.org/congress/v1/members/${req.params.memId}/votes/I000024/114/senate.json`, 
+            method: 'GET', 
+            dataType: 'json', 
+            headers: { 
+                'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY
+            }
+        }); 
+        //console.log(response.data); 
+        res.status(200).json(response.data); 
+    } catch (error) {
+        next(error); 
+    }
+})
+
+app.get('/api/pressReleases/:memId', async (req, res, next) => { 
+    try {
+        const response = await axios({ 
+            url: `https://api.propublica.org/congress/v1/members/${req.params.memId}/statements/115.json`, 
+            method: 'GET', 
+            dataType: 'json', 
+            headers: { 
+                'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY
+            }
+        });  
+        res.status(200).json(response.data); 
+    } catch (error) {
+        next(error); 
+    }
+})
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
