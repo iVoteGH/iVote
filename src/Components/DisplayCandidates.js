@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Table, thead, tr, th, tbody, td } from "react-bootstrap";
-import Waiting from "./Waiting";
-import HOC from "./HOC";
+import React, { Component } from 'react';
+import { Table, thead, tr, th, tbody, td } from 'react-bootstrap';
+import Waiting from './Waiting';
+import HOC from './HOC';
 
 class DisplayCandidates extends Component {
   constructor() {
@@ -9,7 +9,7 @@ class DisplayCandidates extends Component {
     this.state = {
       selectedCandidate: null,
       candidateName: null,
-      cast: false
+      cast: false,
     };
   }
   render() {
@@ -19,12 +19,12 @@ class DisplayCandidates extends Component {
           <Waiting />
         ) : this.props.candidates && this.props.candidates.length > 0 ? (
           <div>
-            <Table responsive>
-              <thead>
+            <table className="table">
+              <thead className="thead-dark">
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Total Votes</th>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Total Votes</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,20 +34,21 @@ class DisplayCandidates extends Component {
                     onClick={() =>
                       this.setState({
                         selectedCandidate: candidate[0].toString(),
-                        candidateName: candidate[1].toString()
+                        candidateName: candidate[1].toString(),
                       })
                     }
                   >
-                    <td>{candidate[0].toString()}</td>
+                    <th scope="row">{candidate[0].toString()}</th>
                     <td>{candidate[1]}</td>
                     <td>{candidate[2].toString()}</td>
                   </tr>
                 ))}
               </tbody>
-            </Table>
+            </table>
             {this.state.selectedCandidate ? (
               <button
                 type="button"
+                className="btn btn-primary"
                 onClick={() => {
                   this.props.castVote(this.state.selectedCandidate);
                   this.setState({ cast: true });

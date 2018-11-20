@@ -1,7 +1,9 @@
-.election-container { 
-    border-width: medium; 
-    border-color: aqua; 
-    background-color: purple; 
-  
-  }
-  
+.election-container {
+  border-width: medium;
+  border-color: aqua;
+  background-color: purple;
+}
+
+.row {
+  padding: 10px;
+}
