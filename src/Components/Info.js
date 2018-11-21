@@ -9,7 +9,7 @@ const Info = props => {
       <p>Explore news sources about each candidate</p>
       <div className="container">
         <div className="row justify-content-center">
-          {props.candidates.map(candidate => (
+          {props.selectedBallot.candidates.map(candidate => (
             <div className="col-sm-4">
               <div className="card">
                 <div className="card-header">

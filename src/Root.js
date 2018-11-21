@@ -13,11 +13,12 @@ const Root = () => {
           <div className="container text-center">
             <h1>Duel of 1804</h1>
             <p>Federalists v Democratic-Republicans</p>
+            {/* <Main /> */}
             <Switch>
               <Route exact path="/" component={Main} />
               <Route exact path="/info" component={Info} />
-              <Route exact path="/vote" component={Vote} />
-              <Route exact path="/results" component={Results} />
+              {/* <Route exact path="/vote" component={Vote} />
+              <Route exact path="/results" component={Results} /> */}
             </Switch>
           </div>
         </main>

@@ -3,15 +3,28 @@ import { Link } from 'react-router-dom';
 import HOC from './HOC';
 
 const Main = props => {
+  console.log('state: ', props)
   return (
     <div>
-      <h1>All Duels</h1>
-      {props.elections.map(election => (
-        <Link to="/info">
-          <div className="election-container">
-            <h1 key={election.name}>{election.name}</h1>
+      <h1>All Ballots</h1>
+      {props.ballots.map((ballot, idx) => (
+        <div onClick={
+          () => {
+              props.selectBallot(props[`singleBallot${idx+1}`])
+              window.location.href = '/info'
+            }
+          }>
+            <h1>{ballot}</h1>
           </div>
-        </Link>
+
+
+        // <Link to="/info" onClick={
+        //   () => props.selectBallot(props[`singleBallot${idx+1}`])
+        //   } >
+        //   <div className="election-container">
+        //     <h1>{ballot}</h1>
+        //   </div>
+        // </Link>
       ))}
     </div>
   );
