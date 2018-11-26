@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 import {
   Vote,
   Results,
@@ -8,17 +8,14 @@ import {
   NewsAPI,
   VotingRecordAPI,
   AdminPage,
-  Navbar
-} from "./Components";
+  Navbar,
+} from './Components';
 
 const Root = () => {
   return (
     <Router>
       <div id="root">
-      <Navbar/>
-        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link to="/">Election Page</Link>
-        </nav> */}
+        <Navbar />
         <main>
           <div className="container text-center">
             <h1>Duel of 1804</h1>

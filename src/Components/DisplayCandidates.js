@@ -20,6 +20,7 @@ class DisplayCandidates extends Component {
       recipient: ""
     };
   }
+
   sendSms = () => {
     fetch("/api/messages", {
       method: "POST",

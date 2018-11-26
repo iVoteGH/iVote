@@ -40,9 +40,7 @@ class VotingRecordAPI extends Component {
       libAgree = 100 - conAgree;
     }
 
-    this.setState({
-      votingComparisons: { libAgree, conAgree }
-    });
+    this.setState({ votingComparisons: { libAgree, conAgree } });
   }
 
   render() {
@@ -62,3 +60,5 @@ class VotingRecordAPI extends Component {
 }
 
 export default VotingRecordAPI;
+
+
