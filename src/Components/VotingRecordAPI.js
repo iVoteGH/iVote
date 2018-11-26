@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { VoteGraph } from './index';
+import React, { Component } from "react";
+import axios from "axios";
+import { VoteGraph } from ".";
 
 class VotingRecordAPI extends Component {
   constructor() {
     super();
     this.state = {
-      votingComparisons: { libAgree: 0, conAgree: 0 },
+      votingComparisons: { libAgree: 0, conAgree: 0 }
     };
   }
 
@@ -15,11 +15,11 @@ class VotingRecordAPI extends Component {
     let response = await axios.get(`/api/memId/${this.props.state}`);
     let candidateName1 =
       response.data.results[0].first_name +
-      ' ' +
+      " " +
       response.data.results[0].last_name;
     let candidateName2 =
       response.data.results[1].first_name +
-      ' ' +
+      " " +
       response.data.results[1].last_name;
     if (candidateName1 === this.props.candidate) {
       memId = response.data.results[0].id;
@@ -32,16 +32,16 @@ class VotingRecordAPI extends Component {
     let libAgree;
     let conAgree;
 
-    if (party === 'D') {
+    if (party === "D") {
       libAgree = Math.floor(votesWithParty);
       conAgree = 100 - libAgree;
-    } else if (party === 'R') {
+    } else if (party === "R") {
       conAgree = Math.floor(votesWithParty);
       libAgree = 100 - conAgree;
     }
 
     this.setState({
-      votingComparisons: { libAgree, conAgree },
+      votingComparisons: { libAgree, conAgree }
     });
   }
 
@@ -54,7 +54,7 @@ class VotingRecordAPI extends Component {
             conAgree={this.state.votingComparisons.conAgree}
           />
         ) : (
-          ' '
+          " "
         )}
       </div>
     );

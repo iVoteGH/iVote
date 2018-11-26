@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { Table, thead, tr, th, tbody, td } from "react-bootstrap";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "whatwg-fetch";
-import Waiting from "./Waiting";
-import Loading from "./Loading";
+import { Waiting, MetaMaskWarning } from ".";
 import HOC from "./HOC";
 
-// const Msg = () => (
-//   <div> Congrats! Your vote has been registered! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
-// );
+const Msg = () => (
+  <div> Congrats! You've almost saved democracy! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
+);
 
 class DisplayCandidates extends Component {
   constructor() {
@@ -20,7 +19,6 @@ class DisplayCandidates extends Component {
       cast: false,
       recipient: ""
     };
-    //this.sendSms = this.sendSms.bind(this);
   }
   sendSms = () => {
     fetch("/api/messages", {
@@ -48,10 +46,13 @@ class DisplayCandidates extends Component {
   };
 
   render() {
+    console.log("account HEREEE", this.props.account);
     return (
       <div>
-        {this.state.cast ? (
-          <Waiting />
+        {!this.props.account ? (
+          <MetaMaskWarning />
+        ) : this.state.cast ? (
+          <Waiting sendSMS={this.sendSms} />
         ) : this.props.candidates && this.props.candidates.length > 0 ? (
           <div>
             <table className="table">
@@ -87,8 +88,7 @@ class DisplayCandidates extends Component {
                 onClick={() => {
                   this.props.castVote(this.state.selectedCandidate);
                   this.setState({ cast: true });
-                  // toast.success(<Msg />);
-                  //this.sendSms;
+                  toast.success(<Msg />);
                 }}
               >
                 Vote for {this.state.candidateName}
@@ -96,13 +96,9 @@ class DisplayCandidates extends Component {
             ) : null}
           </div>
         ) : (
-          <div>
-            {/* <h1>Loading...</h1> */}
-            <Loading />
-          </div>
+          <h1>Loading...</h1>
         )}
-        {/* <ToastContainer autoClose={2500} /> */}
-        <button onClick={this.sendSms}>Send SMS</button>
+        <ToastContainer autoClose={2500} />
       </div>
     );
   }
