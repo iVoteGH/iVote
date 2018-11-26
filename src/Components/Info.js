@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import HOC from "./HOC";
-import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from "./index";
-import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
+import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from ".";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class Info extends Component {
   constructor(props) {
     super(props);
     this.state = {
       buttonToggles: [],
-      modal: false,
-      didClick: {}
+      didClick: {},
+      modal: false
     };
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -32,6 +32,7 @@ class Info extends Component {
   }
 
   render() {
+    console.log("voting stayus", this.props.votingStatus, this.props.account);
     return (
       <div>
         <h3>All Candidates</h3>
@@ -124,18 +125,27 @@ class Info extends Component {
             </div>
           ))}
         </div>
-        <a
-          className="btn btn-primary btn-lg"
-          role="button"
-          href="/vote"
-          // onClick={() => this.toggle}
-        >
-          Go to Ballot!
+        {!this.props.votedStatus ? (
+          <a
+            className="btn btn-primary btn-lg text-white"
+            role="button"
+            href="/vote"
+          >
+            Go to Ballot!
+          </a>
+        ) : (
+          <a
+            className="btn btn-primary btn-lg text-white"
+            role="button"
+            onClick={this.toggle}
+          >
+            Go to Ballot!
+          </a>
+        )}
+        <a className="btn btn-primary btn-lg" role="button" href="/results">
+          Results
         </a>
         <div>
-          <Button color="danger" onClick={this.toggle}>
-            Wait a second!
-          </Button>
           <Modal
             isOpen={this.state.modal}
             toggle={this.toggle}

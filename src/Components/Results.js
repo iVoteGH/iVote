@@ -39,13 +39,13 @@ class Results extends Component {
         <VictoryChart
           domain={{ y: [0, 10] }}
           domainPadding={{ x: 100 }}
-          padding={{ top: 60, bottom: 60, left: 300, right: 300 }}
-          width={this.state.chartWidth}
-          height={400}
+          // padding={{ top: 60, bottom: 60, left: 300, right: 300 }}
+          // width={this.state.chartWidth}
+          // height={400}
         >
           <VictoryBar
             style={{ data: { fill: "#c43a31" } }}
-            alignment="start"
+            alignment="middle"
             barWidth={40}
             data={data}
             // data accessor for x values
