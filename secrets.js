@@ -1,1 +1,0 @@
-process.env.NEWS_API_KEY = "7354031fafc94e23851c03086ad8a24d"
