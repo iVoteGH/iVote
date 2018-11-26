@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import { VictoryBar, VictoryChart } from 'victory';
-import HOC from './HOC';
+import React, { Component } from "react";
+import { VictoryBar, VictoryChart } from "victory";
+import HOC from "./HOC";
 
 class Results extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      chartWidth: 0,
+      chartWidth: 0
     };
   }
 
   componentDidMount() {
     this.setState({
-      chartWidth: window.innerWidth,
+      chartWidth: window.innerWidth
     });
-    window.addEventListener('resize', this.updateDimensions.bind(this));
+    window.addEventListener("resize", this.updateDimensions.bind(this));
   }
 
   updateDimensions(event) {
     this.setState({
-      chartWidth: event.target.innerWidth,
+      chartWidth: event.target.innerWidth
     });
   }
   render() {
     let data = [];
     this.props.candidates.map(candidate =>
       data.push({
-        id: candidate[0]['c'][0],
+        id: candidate[0]["c"][0],
         name: candidate[1],
-        votes: candidate[2]['c'][0],
+        votes: candidate[2]["c"][0]
       })
     );
     return (
@@ -44,7 +44,7 @@ class Results extends Component {
           height={400}
         >
           <VictoryBar
-            style={{ data: { fill: '#c43a31' } }}
+            style={{ data: { fill: "#c43a31" } }}
             alignment="start"
             barWidth={40}
             data={data}
