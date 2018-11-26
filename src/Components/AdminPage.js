@@ -119,23 +119,6 @@ class AdminPage extends Component {
         this.adminBooly = this.adminBooly.bind(this); 
     }
 
-    //maybe store crypto'd admin on page? 
-
-    // async adminBooly(){ 
-    //     try {
-    //         const { isAdmin } = this.props.electionInstance; 
-    //         let adminBool; 
-    //         await window.web3.eth.getAccounts((err, [account]) => { 
-    //             adminBool = isAdmin({from: account}); 
-    //             console.log('he;;p')
-    //         }); 
-    //         this.setState({admin: adminBool})
-    //         console.log('adminBool', adminBool); 
-    //         console.log(this.state); 
-    //     } catch (error) {
-    //         console.error(error); 
-    //     }
-    // }
 
     handleChange(evt){ 
         this.setState({[evt.target.name]: evt.target.value})    

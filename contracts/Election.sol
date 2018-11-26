@@ -28,8 +28,12 @@ contract Election {
 
     // Constructor
     function Election() public {
-        addCandidateInit("Alexander Hamilton", "NY");
-        addCandidateInit("Aaron Burr", "NY");
+        addCandidateInit("Kamala Harris", "CA");
+        addCandidateInit("Orrin Hatch", "UT");
+        addAdmins(); 
+    }
+
+    function addAdmins() private { 
         addAdmin(0xc9Be7e69a60bc72d7a2837a7d444A5741227893c); 
         addAdmin(0x67fd37f1078fDCB5FF9D85BacDb8a61aB9f89956); 
     }
@@ -40,7 +44,7 @@ contract Election {
 
     function addCandidateInit(string _name, string _state) private {
         candidatesCount ++;
-        candidates[candidatesCount] = Candidate(candidatesCount, _name, _state, 0);
+        candidates[candidatesCount] = Candidate(candidatesCount, _name,  _state, 0);
     }
 
     function addCandidate(string _name, string _state) public {
