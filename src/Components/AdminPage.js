@@ -2,125 +2,444 @@ import React, { Component } from 'react';
 import HOC from './HOC'
 
 class AdminPage extends Component { 
-    constructor() { 
-        super(); 
+    constructor(props) { 
+        super(props); 
         this.state = { 
             admin: false,
             candidate: "", 
             state: "", 
             candidateList: [
-                "",
-                "Mark Warner", 
-                "Tim Kaine", 
-                "Chris Van Hollen", 
-                "Ben Cardin", 
-                "Dianne Feinstein", 
-                "Kamala D. Harris", 
-                "Tina Smith", 
-                "Amy Klobuchar", 
-                "Ted Cruz", 
-                "John Cornyn", 
-                "Mitch McConnell", 
-                "Rand Paul", 
-                "Jeff Flake", 
-                "Jon Kyl", 
-                "Shelley Moore Capito", 
-                "Joe Manchin III", 
-                "Tom Carper", 
-                "David Perdue", 
-                "Johnny Isakson", 
-                "Elizabeth Warren", 
-                "Ed Markey", 
-                "Micheal Bennet", 
-                "Cory Gardner", 
-                "Dean Heller", 
-                "Catherine Cortez Masto", 
-                "Tom Udall", 
-                "Martin Heinrich", 
-                "Lamar Alexander", 
-                "Bob Corker", 
-                "Ricard Burr", 
-                "Thom Tillis", 
-                "Maggie Hassan", 
-                "Jeanne Shaheen", 
-                "Susan Collins", 
-                "Angus King", 
-                "Bill Nelson", 
-                "Marco Rubio", 
-                "John Thune", 
-                "Mike Rounds", 
-                "Jack Reed", 
-                "Sheldon Whitehouse", 
-                "Bob Menendez", 
-                "Cory Booker", 
-                "Lindsey Graham", 
-                "Tim Scott", 
-                "Brian E. Schatz", 
-                "Mazie K. Hirono", 
-                "Daniel S. Sullivan", 
-                "Lisa Murkowski", 
-                "Jim Inhofe", 
-                "James Lankford", 
-                "Ben Sasse", 
-                "Deb Fischer", 
-                "Christopher S. Murphy", 
-                "Richard Blumenthal", 
-                "Roger Wicker", 
-                "Cindy Hyde-Smith", 
-                "Claire McCaskill", 
-                "Roy Blunt", 
-                "Pat Toomey", 
-                "Bob Casey Jr.", 
-                "Orrin Hatch", 
-                "Mike Lee", 
-                "Pat Roberts", 
-                "Jerry Moran", 
-                "Gary Peters", 
-                "Debbie Stabenow", 
-                "Doug Jones", 
-                "Richard Shelby", 
-                "Todd C. Young", 
-                "Joe Donnelly", 
-                "Chuck Grassley", 
-                "Joni Ernst", 
-                "John Barrasso", 
-                "Mike Enzi", 
-                "Mike Crapo", 
-                "Jim Risch", 
-                "Bill Cassidy", 
-                "John Neely Kennedy", 
-                "Steve Daines", 
-                "Jon Tester", 
-                "Tammy Duckworth", 
-                "Dick Durbin", 
-                "Maria Cantwell", 
-                "Patty Murray", 
-                "Jeff Merkley", 
-                "Ron Wyden", 
-                "Ronald Harold Johnson", 
-                "Tammy Baldwin", 
-                "Charles Schumer", 
-                "Kirsten Gillibrand", 
-                "Tom Cotton", 
-                "John Boozman", 
-                "Rob Portman", 
-                "Sherrod Brown", 
-                "Heidi Heitkamp", 
-                "John Hoeven", 
-                "Bernie Sanders", 
-                "Patrick Leahy"
+                {
+                    candidate: "Jeff Flake", 
+                    state: "AZ"
+                }, 
+                {
+                    candidate: "Diane Feinstein", 
+                    state: "CA"
+                }, 
+                {
+                    candidate: "Jeff Flake", 
+                    state: "AZ"
+                }, 
+                {
+                    candidate: "Mark Warner", 
+                    state: "VA"
+                }, 
+                {
+                    candidate: "Lisa Murkowski" , 
+                    state: "AL"
+                }, 
+                {
+                    candidate: "Daniel S. Sullivan", 
+                    state: "AL"
+                }, 
+                {
+                    candidate: "Jon Kyl", 
+                    state: "AZ"
+                }, 
+                {
+                    candidate: "John Boozman", 
+                    state: "AK"
+                }, 
+                {
+                    candidate: "Tom Cotton", 
+                    state: "AK"
+                }, 
+                {
+                    candidate: "Kamala D. Harris", 
+                    state: "CA"
+                }, 
+                {
+                    candidate: "Micheal Bennet", 
+                    state: "CO"
+                }, 
+                {
+                    candidate: "Cory Gardner", 
+                    state: "CO"
+                }, 
+                {
+                    candidate: "Richard Blumenthal", 
+                    state: "CT"
+                }, 
+                {
+                    candidate: "Christopher S. Murphy", 
+                    state: "CT"
+                }, 
+                {
+                    candidate: "Tom Carper", 
+                    state: "DE"
+                }, 
+                {
+                    candidate: "Chris Coons", 
+                    state: "DE"
+                }, 
+                {
+                    candidate: "Bill Nelson", 
+                    state: "FL"
+                }, 
+                {
+                    candidate: "Marco Rubio", 
+                    state: "FL"
+                }, 
+                {
+                    candidate: "Johnny Isakson", 
+                    state: "GA"
+                }, 
+                {
+                    candidate: "David Perdue", 
+                    state: "GA"
+                }, 
+                {
+                    candidate: "Brian E. Schatz", 
+                    state: "HI"
+                }, 
+                {
+                    candidate: "Mazie K. Hirono", 
+                    state: "HI"
+                }, 
+                {
+                    candidate: "Mike Crapo", 
+                    state: "ID"
+                }, 
+                {
+                    candidate: "Jim Risch", 
+                    state: "ID"
+                }, 
+                {
+                    candidate: "Dick Durbin", 
+                    state: "IL"
+                }, 
+                {
+                    candidate: "Tammy Duckworth", 
+                    state: "IL"
+                }, 
+                {
+                    candidate: "Joe Donnelly", 
+                    state: "IN"
+                }, 
+                {
+                    candidate: "Todd C. Young", 
+                    state: "IN"
+                }, 
+                {
+                    candidate: "Chuck Grassley", 
+                    state: "IA"
+                }, 
+                {
+                    candidate: "Joni Ernst", 
+                    state: "IA"
+                }, 
+                {
+                    candidate: "Pat Roberts", 
+                    state: "KS"
+                }, 
+                {
+                    candidate: "Jerry Moran", 
+                    state: "KS"
+                }, 
+                {
+                    candidate: "Mitch McConnell", 
+                    state: "KY"
+                }, 
+                {
+                    candidate: "Rand Paul", 
+                    state: "KY"
+                }, 
+                {
+                    candidate: "Bill Cassidy", 
+                    state: "LA"
+                }, 
+                {
+                    candidate: "John Neely Kennedy", 
+                    state: "LA"
+                }, 
+                {
+                    candidate: "Susan Collins", 
+                    state: "ME"
+                }, 
+                {
+                    candidate: "Angus King", 
+                    state: "ME"
+                }, 
+                {
+                    candidate: "Ben Cardin", 
+                    state: "MD"
+                }, 
+                {
+                    candidate: "Chris Van Hollen", 
+                    state: "MD"
+                }, 
+                {
+                    candidate: "Elizabeth Warren", 
+                    state: "MA"
+                }, 
+                {
+                    candidate: "Ed Markey", 
+                    state: "MA"
+                }, 
+                {
+                    candidate: "Debbie Stabenow", 
+                    state: "MI"
+                }, 
+                {
+                    candidate: "Gary Peters", 
+                    state: "MI"
+                }, 
+                {
+                    candidate: "Amy Klobuchar", 
+                    state: "MN"
+                }, 
+                {
+                    candidate: "Tina Smith", 
+                    state: "MN"
+                }, 
+                {
+                    candidate: "Roger Wicker", 
+                    state: "MS"
+                }, 
+                {
+                    candidate: "Cindy Hyde-Smith", 
+                    state: "MS"
+                }, 
+                {
+                    candidate: "Claire McCaskill", 
+                    state: "MO"
+                }, 
+                {
+                    candidate: "Roy Blunt", 
+                    state: "MO"
+                }, 
+                {
+                    candidate: "Jon Tester", 
+                    state: "MT"
+                }, 
+                {
+                    candidate: "Steve Daines", 
+                    state: "MT"
+                }, 
+                {
+                    candidate: "Deb Fischer", 
+                    state: "NE"
+                }, 
+                {
+                    candidate: "Ben Sasse", 
+                    state: "NE"
+                }, 
+                {
+                    candidate: "Dean Heller", 
+                    state: "NV"
+                }, 
+                {
+                    candidate: "Catherine Cortez Masto", 
+                    state: "NV"
+                }, 
+                {
+                    candidate: "Jeanne Shaheen", 
+                    state: "NH"
+                }, 
+                {
+                    candidate: "Maggie Hassan", 
+                    state: "NH"
+                }, 
+                {
+                    candidate: "Bob Menendez", 
+                    state: "NJ"
+                }, 
+                {
+                    candidate: "Cory Booker", 
+                    state: "NJ"
+                }, 
+                {
+                    candidate: "Tom Udall", 
+                    state: "NM"
+                }, 
+                {
+                    candidate: "Martin Heinrich", 
+                    state: "NM"
+                }, 
+                {
+                    candidate: "Charles Schumer", 
+                    state: "NY"
+                }, 
+                {
+                    candidate: "Kirsten Gillibrand", 
+                    state: "NY"
+                }, 
+                {
+                    candidate: "Richard Burr", 
+                    state: "NC"
+                }, 
+                {
+                    candidate: "Thom Tillis", 
+                    state: "NC"
+                }, 
+                {
+                    candidate: "John Hoeven", 
+                    state: "ND"
+                }, 
+                {
+                    candidate: "Heidi Heitkamp", 
+                    state: "ND"
+                }, 
+                {
+                    candidate: "Sherrod Brown", 
+                    state: "OH"
+                }, 
+                {
+                    candidate: "Rob Portman", 
+                    state: "OH"
+                }, 
+                {
+                    candidate: "Jim Inhofe", 
+                    state: "OK"
+                }, 
+                {
+                    candidate: "James Lankford", 
+                    state: "OK"
+                }, 
+                {
+                    candidate: "Ron Wyden", 
+                    state: "OR"
+                }, 
+                {
+                    candidate: "Jeff Merkley", 
+                    state: "OR"
+                }, 
+                {
+                    candidate: "Bob Casey Jr.", 
+                    state: "PA"
+                }, 
+                {
+                    candidate: "Pat Toomey", 
+                    state: "PA" 
+                }, 
+                {
+                    candidate: "Jack Reed", 
+                    state: "RI"
+                }, 
+                {
+                    candidate: "Sheldon Whitehouse", 
+                    state: "RI"
+                }, 
+                {
+                    candidate: "Lindsey Graham",
+                    state: "SC"
+                }, 
+                {
+                    candidate: "Tim Scott", 
+                    state: "SC"
+                }, 
+                {
+                    candidate: "John Thune", 
+                    state: "SD"
+                }, 
+                {
+                    candidate: "Mike Rounds" ,
+                    state: "SD"
+                }, 
+                {
+                    candidate: "Lamar Alexander", 
+                    state: "TN"
+                }, 
+                {
+                    candidate: "Bob Corker", 
+                    state: "TN"
+                }, 
+                {
+                    candidate: "Ted Cruz", 
+                    state: "TX"
+                }, 
+                {
+                    candidate:  "John Cornyn", 
+                    state: "TX"
+                }, 
+                {
+                    candidate: "Orrin Hatch", 
+                    state: "UT"
+                }, 
+                {
+                    candidate:"Mike Lee" , 
+                    state: "UT"
+                }, 
+                {
+                    candidate: "Patrick Leahy", 
+                    state: "VT"
+                }, 
+                {
+                    candidate: "Bernard Sanders", 
+                    state: "VT"
+                }, 
+                {
+                    candidate: "Tim Kaine", 
+                    state: "VA"
+                }, 
+                {
+                    candidate: "Patty Murray", 
+                    state: "WA"
+                }, 
+                {
+                    candidate: "Maria Cantwell", 
+                    state: "WA"
+                }, 
+                {
+                    candidate: "Joe Manchin III", 
+                    state: "WV"
+                }, 
+                {
+                    candidate: "Shelley Moore Capito", 
+                    state: "WV"
+                }, 
+                {
+                    candidate: "Ronald Harold Johnson", 
+                    state: "WI"
+                }, 
+                {
+                    candidate: "Tammy Baldwin", 
+                    state: "WI"
+                }, 
+                {
+                    candidate: "John Barrasso", 
+                    state: "WY"
+                }, 
+                {
+                    candidate: "Mike Enzi", 
+                    state: "WY"
+                }, 
+                { 
+                    candidate: "Doug Jones",
+                    state:"AL"
+                }, 
+                { 
+                    candidate:  "Richard Shelby",
+                    state: "AL"
+                } 
             ], 
-            stateList: [
-                "", "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"   
-            ]
+            adminStatus: false, 
+            checked: false
         }
         this.handleChange = this.handleChange.bind(this); 
         this.addCandidate = this.addCandidate.bind(this); 
+        this.getAdminStatus = this.getAdminStatus.bind(this); 
+    }
+
+
+    async getAdminStatus() { 
+        try{ 
+            const {admins} = this.props.electionInstance; 
+            await window.web3.eth.getAccounts(async (err, [account]) => { 
+                let adminStatus = await admins(account); 
+                this.setState({adminStatus, checked: true})
+            })
+          
+        }catch (error) { 
+            console.error(error); 
+        }
     }
 
 
     handleChange(evt){ 
-        this.setState({[evt.target.name]: evt.target.value})    
+        let parsed = JSON.parse(evt.target.value); 
+        this.setState({candidate: parsed.candidate, state: parsed.state})    
     }
 
     async addCandidate(){ 
@@ -143,26 +462,26 @@ class AdminPage extends Component {
 
     render(){ 
         return ( 
-            // this.state.admin ? (
-                <div>
-                <form>
-                    <select name="candidate" onChange={this.handleChange}>
-                        {this.state.candidateList.map(candidate => ( 
-                            <option value={candidate}>{candidate}</option>
-                        ))}
-                    </select>
-                    <select name="state" onChange={this.handleChange}>
-                        {this.state.stateList.map(state => ( 
-                            <option value={state}>{state}</option>
-                        ))}
-                    </select>
-                </form>
-                <button onClick={this.addCandidate}>Add Candidate</button>
-                
-            </div>
-            // ) : 
-            // (<button onClick={this.adminBooly}>Admin Booly</button>)
-            
+                !this.state.adminStatus ? (
+                    <div>
+                    <button onClick={this.getAdminStatus}>Check Admin Status</button>
+                    {this.state.checked ? <p>Admin Access Denied</p> : null} 
+                    </div>
+                )
+                : 
+                (
+                    <div>
+                    <form>
+                        <select name="candidate" onChange={this.handleChange}>
+                            {this.state.candidateList.map(candidate => ( 
+                                <option value={JSON.stringify(candidate)}>{candidate.candidate} - {candidate.state}</option>
+                            ))}
+                        </select>
+                    </form>
+                    <button onClick={this.addCandidate}>Add Candidate</button>
+                    
+                </div>
+                )
         )
     }
 

@@ -13,7 +13,7 @@ contract Election {
     mapping(address => bool) public voters;
 
     //store admin accounts
-    mapping(address => bool) private admins;
+    mapping(address => bool) public admins;
 
     // Store Candidates
     // Fetch Candidates
@@ -38,6 +38,7 @@ contract Election {
         addAdmin(0x67fd37f1078fDCB5FF9D85BacDb8a61aB9f89956);
     }
 
+
     function isAdmin() public returns (bool){
         return admins[msg.sender];
     }
@@ -53,8 +54,8 @@ contract Election {
         candidates[candidatesCount] = Candidate(candidatesCount, _name,0, _state);
     }
 
-    function addAdmin(address _addy) private {
-        admins[_addy] = true;
+    function addAdmin(address _admin) private {
+        admins[_admin] = true;
     }
 
     function vote(uint _candidateId) public {
