@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Election from '../../build/contracts/Election.json';
+import React, { Component } from "react";
+import Election from "../../build/contracts/Election.json";
 
 const HOC = OtherComponent => {
   return class Vote extends Component {
@@ -8,14 +8,14 @@ const HOC = OtherComponent => {
       this.state = {
         electionInstance: {},
         candidates: [],
-        account: '',
+        account: "",
         votedStatus: null,
         cast: false,
         elections: [
           {
-            name: '2018',
-          },
-        ],
+            name: "2018"
+          }
+        ]
       };
       this.castVote = this.castVote.bind(this);
     }
@@ -35,7 +35,7 @@ const HOC = OtherComponent => {
 
     async instantiateContract() {
       try {
-        const contract = require('truffle-contract');
+        const contract = require("truffle-contract");
         const electionContract = contract(Election);
         // IMPORTANT:
         // Set provider of contract's instance to the blockchain node currently connected to
