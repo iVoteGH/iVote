@@ -7,16 +7,18 @@ import {
   Main,
   NewsAPI,
   VotingRecordAPI,
-  AdminPage
+  AdminPage,
+  Navbar
 } from "./Components";
 
 const Root = () => {
   return (
     <Router>
       <div id="root">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Navbar/>
+        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <Link to="/">Election Page</Link>
-        </nav>
+        </nav> */}
         <main>
           <div className="container text-center">
             <h1>Duel of 1804</h1>
