@@ -116,7 +116,6 @@ class AdminPage extends Component {
         }
         this.handleChange = this.handleChange.bind(this); 
         this.addCandidate = this.addCandidate.bind(this); 
-        this.adminBooly = this.adminBooly.bind(this); 
     }
 
 
