@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { Table, thead, tr, th, tbody, td } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import "whatwg-fetch";
 import Waiting from "./Waiting";
 import Loading from "./Loading";
 import HOC from "./HOC";
 
-const Msg = () => (
-  <div> Congrats! Your vote has been registered! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
-);
+// const Msg = () => (
+//   <div> Congrats! Your vote has been registered! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
+// );
 
 class DisplayCandidates extends Component {
   constructor() {
@@ -87,7 +87,7 @@ class DisplayCandidates extends Component {
                 onClick={() => {
                   this.props.castVote(this.state.selectedCandidate);
                   this.setState({ cast: true });
-                  toast.success(<Msg />);
+                  // toast.success(<Msg />);
                   //this.sendSms;
                 }}
               >
@@ -101,7 +101,7 @@ class DisplayCandidates extends Component {
             <Loading />
           </div>
         )}
-        <ToastContainer autoClose={2500} />
+        {/* <ToastContainer autoClose={2500} /> */}
         <button onClick={this.sendSms}>Send SMS</button>
       </div>
     );
