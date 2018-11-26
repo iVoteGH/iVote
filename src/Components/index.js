@@ -11,6 +11,7 @@ import VoteGraph from "./VoteGraph";
 import PressReleasesAPI from "./PressReleasesAPI";
 import AdminPage from "./AdminPage";
 import MetaMaskWarning from "./MetaMaskWarning";
+import Navbar from './Navbar.js'
 
 export {
   DisplayCandidates,
@@ -25,5 +26,6 @@ export {
   PressReleases,
   VoteGraph,
   PressReleasesAPI,
-  AdminPage
+  AdminPage,
+  Navbar
 };

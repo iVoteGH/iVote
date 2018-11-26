@@ -9,6 +9,7 @@ const HOC = OtherComponent => {
         electionInstance: {},
         candidates: [],
         account: "",
+        adminStatus: false,
         votedStatus: null,
         cast: false,
         elections: [
@@ -18,6 +19,7 @@ const HOC = OtherComponent => {
         ]
       };
       this.castVote = this.castVote.bind(this);
+      this.getAdminStatus = this.getAdminStatus.bind(this);
     }
 
     async componentDidMount() {
@@ -28,6 +30,8 @@ const HOC = OtherComponent => {
         await this.getCandidateCount();
         // Obtain the result of the account being in the voters mapping.
         await this.getVoterState();
+        // Obtain whether account is an admin
+        await this.getAdminStatus();
       } catch (err) {
         console.error(err);
       }
@@ -78,6 +82,19 @@ const HOC = OtherComponent => {
       }
     }
 
+    async getAdminStatus() {
+      try{
+          const {admins} = this.state.electionInstance;
+          await window.web3.eth.getAccounts(async (err, [account]) => {
+              let adminStatus = await admins(account);
+              this.setState({adminStatus})
+          })
+
+      }catch (error) {
+          console.error(error);
+      }
+  }
+
     async castVote(idx) {
       try {
         const { vote } = this.state.electionInstance;
@@ -96,6 +113,7 @@ const HOC = OtherComponent => {
           {...this.props}
           {...this.state}
           castVote={this.castVote}
+          getAdminStatus={this.getAdminStatus}
         />
       );
     }
