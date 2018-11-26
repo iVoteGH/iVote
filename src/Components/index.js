@@ -9,6 +9,7 @@ import VotingRecordAPI from './VotingRecordAPI';
 import PressReleases from './PressReleases';
 import VoteGraph from './VoteGraph';
 import PressReleasesAPI from './PressReleasesAPI';
+import AdminPage from './AdminPage'; 
 
 export {
   DisplayCandidates,
@@ -22,4 +23,5 @@ export {
   PressReleases,
   VoteGraph,
   PressReleasesAPI,
+  AdminPage
 };
