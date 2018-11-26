@@ -1,3 +1,4 @@
+
 .election-container {
   border-width: medium;
   border-color: aqua;
@@ -16,9 +17,11 @@
   width: 600px;
 }
 
+#cardHeading {
+  background-color: RGB(0, 21, 188);
+}
 
-
-/* a { 
-  text-decoration: none; 
-  color: white; 
-} */
+#candidatesImg {
+  height: 100px;
+  width: 150px;
+}

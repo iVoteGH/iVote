@@ -5,16 +5,14 @@ import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 class ModalWarning extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modal: false
-    };
+    this.state = { modal: false };
     this.toggle = this.toggle.bind(this);
   }
+
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
+    this.setState({ modal: !this.state.modal });
   }
+
   render() {
     return (
       <div>

@@ -26,6 +26,6 @@ export {
   PressReleases,
   VoteGraph,
   PressReleasesAPI,
-  AdminPage, 
+  AdminPage,
   Navbar
 };

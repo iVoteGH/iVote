@@ -30,6 +30,9 @@ contract Election {
     function Election() public {
         addCandidateInit("Kamala Harris", "CA");
         addCandidateInit("Orrin Hatch", "UT");
+        addCandidateInit("Mark Warner", "VA");
+        addCandidateInit("Lisa Murkowski", "AL");
+        addCandidateInit("Tom Cotton", "AK");
         addAdmins();
     }
 

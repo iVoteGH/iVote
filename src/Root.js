@@ -16,9 +16,6 @@ const Root = () => {
     <Router>
       <div id="root">
       <Navbar/>
-        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link to="/">Election Page</Link>
-        </nav> */}
         <main>
           <div className="container text-center">
             <h1>Duel of 1804</h1>
