@@ -5,9 +5,7 @@ import { PressReleases } from ".";
 class PressReleasesAPI extends Component {
   constructor() {
     super();
-    this.state = {
-      pressReleases: []
-    };
+    this.state = { pressReleases: [] };
   }
 
   async componentDidMount() {
@@ -29,9 +27,7 @@ class PressReleasesAPI extends Component {
     let pressRes = await axios.get(`/api/pressReleases/${memId}`);
     let pressReleases = pressRes.data.results.slice(0, 5);
 
-    this.setState({
-      pressReleases
-    });
+    this.setState({ pressReleases });
   }
 
   render() {

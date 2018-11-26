@@ -5,11 +5,8 @@ import HOC from "./HOC";
 const Vote = props => {
   return (
     <div>
-      {props.votedStatus ? (
-        <Results candidates={props.candidates} />
-      ) : (
-        <DisplayCandidates />
-      )}
+      {props.votedStatus ? ( <Results candidates={props.candidates} />
+      ) : ( <DisplayCandidates /> )}
     </div>
   );
 };

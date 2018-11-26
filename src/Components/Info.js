@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import HOC from "./HOC";
-import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from ".";
-import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import React, { Component } from 'react';
+import HOC from './HOC';
+import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from '.';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class Info extends Component {
   constructor(props) {
@@ -9,16 +9,15 @@ class Info extends Component {
     this.state = {
       buttonToggles: [],
       didClick: {},
-      modal: false
+      modal: false,
     };
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
   }
   toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
+    this.setState({ modal: !this.state.modal });
   }
+
   clicked(evt) {
     let clickedState = { ...this.state.didClick };
     if (clickedState[evt.target.value]) {
@@ -26,98 +25,103 @@ class Info extends Component {
     } else {
       clickedState[evt.target.value] = true;
     }
-    this.setState({
-      didClick: clickedState
-    });
+    this.setState({ didClick: clickedState });
   }
 
   render() {
-    console.log("voting stayus", this.props.votingStatus, this.props.account);
     return (
       <div>
         <h3>All Candidates</h3>
+        <img
+          src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
+          id="candidatesImg"
+        />
         <p>Explore news sources about each candidate</p>
-        <div id="accordion">
+        <div className="card-deck">
           {this.props.candidates.map((candidate, index) => (
-            <div className="card">
-              <div className="card-header" id={`heading${index}`}>
-                <h5 className="mb-0">
-                  <button
-                    className="btn btn-link"
-                    data-toggle="collapse"
-                    data-target={`#collapse${index}`}
-                    aria-expanded="false"
-                    aria-controls={`collapse${index}`}
-                  >
-                    {candidate[1]}
-                  </button>
-                </h5>
-              </div>
-              <div
-                id={`collapse${index}`}
-                className="collapse hide"
-                aria-labelledby={`heading${index}`}
-              >
-                <div className="card-body">
-                  <p>Current Vote Count: {candidate[2].toString()}</p>
-                  <p>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target={`#votingRecord${index}`}
-                      aria-expanded="false"
-                      aria-controls={`votingRecord${index}`}
-                      value={`${index}`}
-                      onClick={this.clicked}
-                    >
-                      Voting Record
-                    </button>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target={`#pressReleases${index}`}
-                      aria-expanded="false"
-                      aria-controls={`pressReleases${index}`}
-                    >
-                      Press Releases
-                    </button>
-                    <button
-                      className="btn btn-primary"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target={`#newsArticles${index}`}
-                      aria-expanded="false"
-                      aria-controls={`newsArticles${index}`}
-                    >
-                      News Articles
-                    </button>
-                  </p>
-                  <div className="collapse" id={`votingRecord${index}`}>
-                    <div className="card card-body">
-                      <VotingRecordAPI
-                        didClick={this.state.didClick[index]}
-                        candidate={candidate[1]}
-                        state={candidate[3]}
-                      />
-                    </div>
+            <div className="row col-sm-6">
+              <div className="col-md-12">
+                <div className="card" id="cardHeading">
+                  <div className="card-header" id={`heading${index}`}>
+                    <h5 className="mb-0">
+                      <button
+                        className="btn btn-link text-white"
+                        data-toggle="collapse"
+                        data-target={`#collapse${index}`}
+                        aria-expanded="false"
+                        aria-controls={`collapse${index}`}
+                      >
+                        {candidate[1]}
+                      </button>
+                    </h5>
                   </div>
-                  <div className="collapse" id={`pressReleases${index}`}>
-                    <div className="card card-body">
-                      <PressReleasesAPI
-                        candidate={candidate[1]}
-                        state={candidate[3]}
-                      />
+                </div>
+                <div
+                  id={`collapse${index}`}
+                  className="collapse hide"
+                  aria-labelledby={`heading${index}`}
+                >
+                  <div className="card-body">
+                    <p>Current Vote Count: {candidate[2].toString()}</p>
+                    <p>
+                      <button
+                        className="btn btn-danger"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target={`#votingRecord${index}`}
+                        aria-expanded="false"
+                        aria-controls={`votingRecord${index}`}
+                        value={`${index}`}
+                        onClick={this.clicked}
+                      >
+                        Voting Record
+                      </button>{' '}
+                      <button
+                        className="btn btn-danger"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target={`#pressReleases${index}`}
+                        aria-expanded="false"
+                        aria-controls={`pressReleases${index}`}
+                      >
+                        Press Releases
+                      </button>{' '}
+                      <button
+                        className="btn btn-danger"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target={`#newsArticles${index}`}
+                        aria-expanded="false"
+                        aria-controls={`newsArticles${index}`}
+                      >
+                        News Articles
+                      </button>
+                    </p>
+                    <div className="collapse" id={`votingRecord${index}`}>
+                      <div className="card card-body">
+                        <VotingRecordAPI
+                          didClick={this.state.didClick[index]}
+                          candidate={candidate[1]}
+                          state={candidate[3]}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="collapse" id={`newsArticles${index}`}>
-                    <div className="card card-body">
-                      <NewsAPI
-                        candidate={candidate[1]}
-                        index={index}
-                        election={this.props.elections[0].name}
-                      />
+                    <div className="collapse" id={`pressReleases${index}`}>
+                      <div className="card card-body">
+                        <PressReleasesAPI
+                          candidate={candidate[1]}
+                          state={candidate[3]}
+                        />
+                      </div>
+                    </div>
+                    <div className="collapse" id={`newsArticles${index}`}>
+                      <div className="card card-body">
+                        <NewsAPI
+                          candidate={candidate[1]}
+                          index={index}
+                          election={this.props.elections[0].name}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -155,14 +159,14 @@ class Info extends Component {
               toggle={this.toggle}
               className="col-12 modal-title text-center"
             >
-              <strong>*** VOTER FRAUD ALERT ***</strong>{" "}
+              <strong>*** VOTER FRAUD ALERT ***</strong>{' '}
             </ModalHeader>
             <ModalBody>
-              ⚠️{" "}
+              ⚠️{' '}
               <strong>
                 WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
                 EVEN THINK ABOUT IT!!!!!!!!!!!!!!!!!!!!!!!!
-              </strong>{" "}
+              </strong>{' '}
               ⚠️
               <img src="https://lishacauthen.files.wordpress.com/2013/04/dog_shaking_finger.gif" />
             </ModalBody>

@@ -11,7 +11,7 @@ export default class Vote extends Component {
       account: "",
       votedStatus: null,
       cast: false
-    };
+                 };
     this.castVote = this.castVote.bind(this);
   }
 
@@ -53,9 +53,7 @@ export default class Vote extends Component {
       }
       const candidates = await Promise.all(pendingCandidatesArr);
       this.setState({ candidates });
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err) { console.error(err) }
   }
 
   async getVoterState() {
@@ -68,9 +66,7 @@ export default class Vote extends Component {
           this.setState({ cast: true });
         }
       });
-    } catch (err) {
-      console.error(err);
-    }
+} catch (err) { console.error(err) }
   }
 
   async castVote(idx) {
@@ -80,18 +76,12 @@ export default class Vote extends Component {
         vote(idx, { from: account });
       });
       this.setState({ cast: true });
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err) { console.error(err) }
   }
 
   render() {
-    //if account is '' --> need to have something that tells you to log into metamask and does not display ability
-    console.log("STATE: ", this.state);
-
     const voted = this.state.votedStatus;
     const castVote = this.state.cast;
-
     const waiting = (
       <div>
         <p>

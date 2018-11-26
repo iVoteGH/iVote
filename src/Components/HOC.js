@@ -12,11 +12,7 @@ const HOC = OtherComponent => {
         adminStatus: false,
         votedStatus: null,
         cast: false,
-        elections: [
-          {
-            name: "2018"
-          }
-        ]
+        elections: [ { name: "2018" } ]
       };
       this.castVote = this.castVote.bind(this);
       this.getAdminStatus = this.getAdminStatus.bind(this);
@@ -32,9 +28,7 @@ const HOC = OtherComponent => {
         await this.getVoterState();
         // Obtain whether account is an admin
         await this.getAdminStatus();
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) { console.error(err) }
     }
 
     async instantiateContract() {
@@ -48,9 +42,7 @@ const HOC = OtherComponent => {
         const electionInstance = await electionContract.deployed();
         // Set the instance of contract to local state
         this.setState({ electionInstance });
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) { console.error(err) }
     }
 
     async getCandidateCount() {
@@ -62,9 +54,7 @@ const HOC = OtherComponent => {
         }
         const candidates = await Promise.all(pendingCandidatesArr);
         this.setState({ candidates });
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) { console.error(err) }
     }
 
     async getVoterState() {
@@ -77,9 +67,7 @@ const HOC = OtherComponent => {
             this.setState({ cast: true });
           }
         });
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) { console.error(err) }
     }
 
     async getAdminStatus() {
@@ -102,9 +90,7 @@ const HOC = OtherComponent => {
           vote(idx, { from: account });
         });
         this.setState({ cast: true });
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) { console.error(err) }
     }
 
     render() {
