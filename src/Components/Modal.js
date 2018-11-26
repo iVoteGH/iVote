@@ -8,16 +8,13 @@ class ModalWarning extends React.Component {
     this.state = {
       modal: false
     };
-
     this.toggle = this.toggle.bind(this);
   }
-
   toggle() {
     this.setState({
       modal: !this.state.modal
     });
   }
-
   render() {
     return (
       <div>
@@ -49,5 +46,4 @@ class ModalWarning extends React.Component {
     );
   }
 }
-
 export default HOC(ModalWarning);
