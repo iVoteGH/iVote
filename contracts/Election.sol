@@ -6,6 +6,7 @@ contract Election {
         uint id;
         string name;
         uint voteCount;
+        string state;
     }
 
     // Store accounts that have voted
@@ -24,13 +25,13 @@ contract Election {
 
     // Constructor
     function Election() public {
-        addCandidate("Alexander Hamilton");
-        addCandidate("Aaron Burr");
+        addCandidate("Kamala Harris", "CA");
+        addCandidate("Orrin Hatch", "UT");
     }
 
-    function addCandidate(string _name) private {
+    function addCandidate(string _name, string _state) private {
         candidatesCount ++;
-        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0, _state);
     }
 
     function vote(uint _candidateId) public {

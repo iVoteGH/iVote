@@ -1,21 +1,21 @@
 .election-container {
   border-width: medium;
   border-color: aqua;
-  background-color: purple;
+  /* background-color: purple; */
 }
 
 .row {
   padding: 10px;
 }
 
-.press-releases { 
-    text-align: justify;
+.press-releases {
+  text-align: justify;
 }
 
-.press-releases-container { 
-    width: 600px; 
+.press-releases-container {
+  width: 600px;
 }
 
-a { 
-    color: purple; 
+a {
+  color: purple;
 }
