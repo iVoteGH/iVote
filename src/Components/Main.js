@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import HOC from './HOC';
+import React from "react";
+import { Link } from "react-router-dom";
+import HOC from "./HOC";
 
 const Main = props => {
   return (

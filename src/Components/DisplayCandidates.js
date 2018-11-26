@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
-import { Table, thead, tr, th, tbody, td } from 'react-bootstrap';
-import Waiting from './Waiting';
-import HOC from './HOC';
+import React, { Component } from "react";
+import { Table, thead, tr, th, tbody, td } from "react-bootstrap";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+import "whatwg-fetch";
+import Waiting from "./Waiting";
+import Loading from "./Loading";
+import HOC from "./HOC";
+
+// const Msg = () => (
+//   <div> Congrats! Your vote has been registered! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
+// );
 
 class DisplayCandidates extends Component {
   constructor() {
@@ -10,8 +18,35 @@ class DisplayCandidates extends Component {
       selectedCandidate: null,
       candidateName: null,
       cast: false,
+      recipient: ""
     };
+    //this.sendSms = this.sendSms.bind(this);
   }
+  sendSms = () => {
+    fetch("/api/messages", {
+      method: "POST",
+      headers: {
+        Accept: "application/JSON",
+        "Content-Type": "application/JSON"
+      },
+      body: JSON.stringify({ recipient: this.state.recipient })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          this.setState({
+            error: false,
+            submitting: false
+          });
+        } else {
+          this.setState({
+            error: true,
+            submitting: false
+          });
+        }
+      });
+  };
+
   render() {
     return (
       <div>
@@ -34,7 +69,7 @@ class DisplayCandidates extends Component {
                     onClick={() =>
                       this.setState({
                         selectedCandidate: candidate[0].toString(),
-                        candidateName: candidate[1].toString(),
+                        candidateName: candidate[1].toString()
                       })
                     }
                   >
@@ -52,6 +87,8 @@ class DisplayCandidates extends Component {
                 onClick={() => {
                   this.props.castVote(this.state.selectedCandidate);
                   this.setState({ cast: true });
+                  // toast.success(<Msg />);
+                  //this.sendSms;
                 }}
               >
                 Vote for {this.state.candidateName}
@@ -60,9 +97,12 @@ class DisplayCandidates extends Component {
           </div>
         ) : (
           <div>
-            <h1>Loading...</h1>
+            {/* <h1>Loading...</h1> */}
+            <Loading />
           </div>
         )}
+        {/* <ToastContainer autoClose={2500} /> */}
+        <button onClick={this.sendSms}>Send SMS</button>
       </div>
     );
   }

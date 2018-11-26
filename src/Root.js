@@ -1,6 +1,14 @@
-import React from 'react';
-import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
-import { Vote, Results, Info, Main, NewsAPI, VotingRecordAPI, AdminPage } from './Components';
+import React from "react";
+import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
+import {
+  Vote,
+  Results,
+  Info,
+  Main,
+  NewsAPI,
+  VotingRecordAPI,
+  AdminPage
+} from "./Components";
 
 const Root = () => {
   return (
@@ -18,7 +26,7 @@ const Root = () => {
               <Route exact path="/info" component={Info} />
               <Route exact path="/vote" component={Vote} />
               <Route exact path="/results" component={Results} />
-              <Route exact path="/admin" component={AdminPage}/>
+              <Route exact path="/admin" component={AdminPage} />
             </Switch>
           </div>
         </main>

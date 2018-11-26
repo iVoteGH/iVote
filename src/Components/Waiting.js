@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import HOC from "./HOC";
+
+const Msg = () => (
+  <div> Congrats! Your vote has been registered! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
+);
 
 const Waiting = props => {
   return (
@@ -10,8 +17,16 @@ const Waiting = props => {
       </p>
       <p>
         When you have finshed voting{" "}
-        <Link to="/results">Click to View Results</Link>
+        <button
+          onClick={() => {
+            toast.success(<Msg />);
+          }}
+        >
+          {" "}
+          <Link to="/results">Click to View Results</Link>
+        </button>
       </p>
+      <ToastContainer autoClose={2500} />
     </div>
   );
 };

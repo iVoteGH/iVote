@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
-import HOC from './HOC';
-import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from './index';
+import React, { Component } from "react";
+import HOC from "./HOC";
+import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from "./index";
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class Info extends Component {
   constructor(props) {
     super(props);
     this.state = {
       buttonToggles: [],
-      didClick: {},
+      modal: false,
+      didClick: {}
     };
     this.clicked = this.clicked.bind(this);
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
   }
   clicked(evt) {
     let clickedState = { ...this.state.didClick };
@@ -19,7 +27,7 @@ class Info extends Component {
       clickedState[evt.target.value] = true;
     }
     this.setState({
-      didClick: clickedState,
+      didClick: clickedState
     });
   }
 
@@ -116,9 +124,40 @@ class Info extends Component {
             </div>
           ))}
         </div>
-        <a className="btn btn-primary btn-lg" role="button" href="/vote">
+        <a
+          className="btn btn-primary btn-lg"
+          role="button"
+          href="/vote"
+          // onClick={() => this.toggle}
+        >
           Go to Ballot!
         </a>
+        <div>
+          <Button color="danger" onClick={this.toggle}>
+            Wait a second!
+          </Button>
+          <Modal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            className={this.props.className}
+          >
+            <ModalHeader
+              toggle={this.toggle}
+              className="col-12 modal-title text-center"
+            >
+              <strong>*** VOTER FRAUD ALERT ***</strong>{" "}
+            </ModalHeader>
+            <ModalBody>
+              ⚠️{" "}
+              <strong>
+                WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
+                EVEN THINK ABOUT IT!!!!!!!!!!!!!!!!!!!!!!!!
+              </strong>{" "}
+              ⚠️
+              <img src="https://lishacauthen.files.wordpress.com/2013/04/dog_shaking_finger.gif" />
+            </ModalBody>
+          </Modal>
+        </div>
       </div>
     );
   }
