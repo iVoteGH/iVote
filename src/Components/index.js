@@ -10,7 +10,7 @@ import PressReleases from "./PressReleases";
 import VoteGraph from "./VoteGraph";
 import PressReleasesAPI from "./PressReleasesAPI";
 import AdminPage from "./AdminPage";
-import Loading from "./Loading";
+import MetaMaskWarning from "./MetaMaskWarning";
 
 export {
   DisplayCandidates,
@@ -21,7 +21,7 @@ export {
   Main,
   NewsAPI,
   VotingRecordAPI,
-  Loading,
+  MetaMaskWarning,
   PressReleases,
   VoteGraph,
   PressReleasesAPI,
