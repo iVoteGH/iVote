@@ -13,7 +13,7 @@ const HOC = OtherComponent => {
         cast: false,
         elections: [
           {
-            name: " Duel of 1804"
+            name: "2018"
           }
         ]
       };
