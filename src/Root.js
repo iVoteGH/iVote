@@ -6,7 +6,8 @@ import {
   Info,
   Main,
   NewsAPI,
-  VotingRecordAPI
+  VotingRecordAPI,
+  AdminPage
 } from "./Components";
 
 const Root = () => {
@@ -25,6 +26,7 @@ const Root = () => {
               <Route exact path="/info" component={Info} />
               <Route exact path="/vote" component={Vote} />
               <Route exact path="/results" component={Results} />
+              <Route exact path="/admin" component={AdminPage} />
             </Switch>
           </div>
         </main>

@@ -6,6 +6,10 @@ import Main from "./Main";
 import Info from "./Info";
 import NewsAPI from "./NewsAPI";
 import VotingRecordAPI from "./VotingRecordAPI";
+import PressReleases from "./PressReleases";
+import VoteGraph from "./VoteGraph";
+import PressReleasesAPI from "./PressReleasesAPI";
+import AdminPage from "./AdminPage";
 import Loading from "./Loading";
 
 export {
@@ -17,5 +21,9 @@ export {
   Main,
   NewsAPI,
   VotingRecordAPI,
-  Loading
+  Loading,
+  PressReleases,
+  VoteGraph,
+  PressReleasesAPI,
+  AdminPage
 };
