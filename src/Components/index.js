@@ -12,6 +12,8 @@ import PressReleasesAPI from './PressReleasesAPI';
 import AdminPage from './AdminPage';
 import MetaMaskWarning from './MetaMaskWarning';
 import Navbar from './Navbar.js';
+import Headshot from './Headshot.js';
+import PartyIcon from './PartyIcon.js';
 
 export {
   DisplayCandidates,
@@ -28,4 +30,6 @@ export {
   PressReleasesAPI,
   AdminPage,
   Navbar,
+  Headshot,
+  PartyIcon,
 };

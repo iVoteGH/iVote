@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import HOC from './HOC';
-import { VotingRecordAPI, PressReleasesAPI, NewsAPI } from '.';
+import axios from 'axios';
+import {
+  VotingRecordAPI,
+  PressReleasesAPI,
+  NewsAPI,
+  Headshot,
+  PartyIcon,
+} from '.';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class Info extends Component {
@@ -14,6 +21,26 @@ class Info extends Component {
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
   }
+  async somethingTemp() {
+    let memId;
+    let response = await axios.get(`/api/memId/${this.props.state}`);
+    let candidateName1 =
+      response.data.results[0].first_name +
+      ' ' +
+      response.data.results[0].last_name;
+    let candidateName2 =
+      response.data.results[1].first_name +
+      ' ' +
+      response.data.results[1].last_name;
+    if (candidateName1 === this.props.candidate) {
+      memId = response.data.results[0].id;
+    } else if (candidateName2 === this.props.candidate) {
+      memId = response.data.results[1].id;
+    }
+    const member = await axios.get(`/api/members/${memId}`);
+    const party = member.data.results[0].current_party;
+  }
+
   toggle() {
     this.setState({ modal: !this.state.modal });
   }
@@ -48,13 +75,21 @@ class Info extends Component {
                   <div className="card-header" id={`heading${index}`}>
                     <h5 className="mb-0">
                       <button
-                        className="btn btn-link text-white"
+                        className="btn btn-link text-black"
                         data-toggle="collapse"
                         data-target={`#collapse${index}`}
                         aria-expanded="false"
                         aria-controls={`collapse${index}`}
                       >
+                        <Headshot
+                          candidate={candidate[1]}
+                          state={candidate[3]}
+                        />
                         {candidate[1]}
+                        <PartyIcon
+                          candidate={candidate[1]}
+                          state={candidate[3]}
+                        />
                       </button>
                     </h5>
                   </div>
