@@ -21,7 +21,7 @@
 }
 
 #cardHeading {
-  background-color: RGB(0, 21, 188);
+  background-color: white;
 }
 
 #candidatesImg {
@@ -31,6 +31,16 @@
 
 .addCandList { 
   list-style-type: none; 
+}
+
+#partyIconImg {
+  height: 20%;
+  width: 20%;
+}
+
+#headShotImg {
+  height: 20%;
+  width: 20%;
 }
 
 body {
