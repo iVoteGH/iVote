@@ -69,7 +69,7 @@ class Info extends Component {
         </p>
         <div className="card-deck">
           {this.props.candidates.map((candidate, index) => (
-            <div className="row col-sm-6">
+            <div className="row col-sm-6 ">
               <div className="col-md-12">
                 <div className="card" id="cardHeading">
                   <div className="card-header" id={`heading${index}`}>
@@ -99,7 +99,7 @@ class Info extends Component {
                   className="collapse hide"
                   aria-labelledby={`heading${index}`}
                 >
-                  <div className="card-body">
+                  <div className="card-body scroll">
                     <p>Current Vote Count: {candidate[2].toString()}</p>
                     <p>
                       <button

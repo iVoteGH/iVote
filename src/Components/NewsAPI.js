@@ -25,6 +25,7 @@ class NewsAPI extends Component {
       <div className="accordion" id={`newsAccordion${this.props.index}`}>
         <div className="card">
           <div className="card-header" id={`headingOne${this.props.index}`}>
+            <p>Recent News Articles:</p>
             <h5 className="mb-0">
               <button
                 className="btn btn-link collapsed"
