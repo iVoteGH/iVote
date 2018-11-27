@@ -120,3 +120,8 @@ header.masthead p {
   height: 20%;
   width: 20%;
 }
+
+.scroll {
+  max-height: 380px;
+  overflow-y: auto;
+}
