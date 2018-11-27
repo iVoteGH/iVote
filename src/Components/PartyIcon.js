@@ -10,10 +10,6 @@ class PartyIcon extends Component {
   }
 
   async componentDidMount() {
-    const donkey =
-      'https://vectors.pro/wp-content/uploads/2017/10/democratic-donkey-vector-logo.png';
-    const elephant =
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Republicanlogo.svg/1179px-Republicanlogo.svg.png';
     let memId;
     let iconLink;
 
@@ -34,9 +30,9 @@ class PartyIcon extends Component {
     const member = await axios.get(`/api/members/${memId}`);
     const party = member.data.results[0].current_party;
     if (party === 'R') {
-      iconLink = elephant;
+      iconLink = 'GOP.png';
     } else {
-      iconLink = donkey;
+      iconLink = 'DNC.png';
     }
     this.setState({ iconLink });
   }
