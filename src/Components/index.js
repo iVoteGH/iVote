@@ -14,6 +14,7 @@ import MetaMaskWarning from './MetaMaskWarning';
 import Navbar from './Navbar.js';
 import Headshot from './Headshot.js';
 import PartyIcon from './PartyIcon.js';
+import Footer from './Footer.js';
 
 export {
   DisplayCandidates,
@@ -32,4 +33,5 @@ export {
   Navbar,
   Headshot,
   PartyIcon,
+  Footer,
 };

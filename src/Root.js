@@ -9,6 +9,7 @@ import {
   VotingRecordAPI,
   AdminPage,
   Navbar,
+  Footer,
 } from './Components';
 
 const Root = () => {
@@ -27,6 +28,7 @@ const Root = () => {
             </Switch>
           </div>
         </main>
+        <Footer />
       </div>
     </Router>
   );

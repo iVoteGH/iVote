@@ -1,5 +1,5 @@
-import React from "react";
-import HOC from "./HOC";
+import React from 'react';
+import HOC from './HOC';
 
 const Navbar = props => {
   return (
@@ -23,6 +23,7 @@ const Navbar = props => {
           </a>
         ) : null}
       </nav>
+      <img src="Header.png" />
     </div>
   );
 };
