@@ -58,6 +58,9 @@ header.masthead p {
     font-size: 4rem;
   }
 }
+.card-deck {
+  justify-content: center;
+}
 
 #cardHeading {
   background-color: RGB(0, 21, 188);
@@ -66,4 +69,10 @@ header.masthead p {
 #candidatesImg {
   height: 100px;
   width: 150px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Chakra Petch, Merriweather, "Helvetica Neue", Arial, sans-serif;
 }

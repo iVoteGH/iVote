@@ -31,8 +31,8 @@ contract Election {
         addCandidateInit("Kamala Harris", "CA");
         addCandidateInit("Orrin Hatch", "UT");
         addCandidateInit("Mark Warner", "VA");
-        addCandidateInit("Lisa Murkowski", "AL");
-        addCandidateInit("Tom Cotton", "AK");
+        addCandidateInit("Kirsten Gillibrand", "NY");
+        addCandidateInit("Jeff Flake", "AZ");
         addAdmins();
     }
 
@@ -48,7 +48,7 @@ contract Election {
 
     function addCandidateInit(string _name, string _state) private {
         candidatesCount ++;
-        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0, _state);
+        candidates[candidatesCount] = Candidate(candidatesCount, _name, 3, _state);
     }
 
     function addCandidate(string _name, string _state) public {

@@ -31,12 +31,15 @@ class Info extends Component {
   render() {
     return (
       <div>
-        <h3>All Candidates</h3>
+        <br />
         <img
           src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
           id="candidatesImg"
         />
-        <p>Explore news sources about each candidate</p>
+        <p>
+          Explore vote leanings, press releases, and news sources about each
+          candidate
+        </p>
         <div className="card-deck">
           {this.props.candidates.map((candidate, index) => (
             <div className="row col-sm-6">
@@ -145,7 +148,7 @@ class Info extends Component {
           >
             Go to Ballot!
           </a>
-        )}
+        )}{' '}
         <a className="btn btn-primary btn-lg" role="button" href="/results">
           Results
         </a>
@@ -165,7 +168,7 @@ class Info extends Component {
               ⚠️{' '}
               <strong>
                 WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
-                EVEN THINK ABOUT IT!!!!!!!!!!!!!!!!!!!!!!!!
+                EVEN THINK ABOUT IT!!!
               </strong>{' '}
               ⚠️
               <img src="https://lishacauthen.files.wordpress.com/2013/04/dog_shaking_finger.gif" />
