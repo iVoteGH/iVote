@@ -30,7 +30,7 @@ const Main = props => {
             </h3>
             <a
               className="btn btn-primary btn-xl js-scroll-trigger"
-              href="#tech"
+              href="/info"
             >
               I'm interested!
             </a>
