@@ -6,10 +6,8 @@ class AdminPage extends Component {
     super(props);
     this.state = {
       admin: false,
-      candidate: '',
-      state: '',
+      selectedCandidates: [], 
       candidateList: [
-        { candidate: 'Jeff Flake', state: 'AZ' },
         { candidate: 'Diane Feinstein', state: 'CA' },
         { candidate: 'Jeff Flake', state: 'AZ' },
         { candidate: 'Mark Warner', state: 'VA' },
@@ -115,9 +113,22 @@ class AdminPage extends Component {
       checked: false,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.addCandidate = this.addCandidate.bind(this);
+    this.addCandidates = this.addCandidates.bind(this);
     this.getAdminStatus = this.getAdminStatus.bind(this);
+    this.toAddCandidate = this.toAddCandidate.bind(this); 
+    this.toRemoveCanidate = this.toRemoveCanidate.bind(this); 
+    this.filterCandidates = this.filterCandidates.bind(this); 
   }
+
+
+  filterCandidates(){ 
+    const contractCandidates = this.props.candidates.map(candidate => (candidate[1])); 
+    let remainingCandidates = this.state.candidateList.filter(candidate => (
+      !contractCandidates.includes(candidate.candidate)
+    ))
+    this.setState({candidateList: remainingCandidates})
+  }
+  
 
   async getAdminStatus() {
     try {
@@ -125,6 +136,7 @@ class AdminPage extends Component {
       await window.web3.eth.getAccounts(async (err, [account]) => {
         let adminStatus = await admins(account);
         this.setState({ adminStatus, checked: true });
+        this.filterCandidates(); 
       });
     } catch (error) {
       console.error(error);
@@ -136,21 +148,50 @@ class AdminPage extends Component {
     this.setState({ candidate: parsed.candidate, state: parsed.state });
   }
 
-  async addCandidate() {
+  async addCandidates() {
     try {
-      if (this.state.candidate !== '' && this.state.state !== '') {
+      if (this.state.selectedCandidates.length) {
+
+        const candidates = this.state.selectedCandidates; 
         const { addCandidate } = this.props.electionInstance;
-        await window.web3.eth.getAccounts((err, [account]) => {
-          addCandidate(this.state.candidate, this.state.state, {
-            from: account,
-          });
-        });
+
+          for (let i = 0; i < this.state.selectedCandidates.length; i++) { 
+            await window.web3.eth.getAccounts((err, [account]) => {
+              addCandidate(candidates[i].candidate, candidates[i].state, {
+                from: account,
+              })})
+          }
+          
       } else {
-        throw 'Please pick a candidate and state';
+        throw 'Please pick a candidate to add';
       }
     } catch (err) {
       console.error(err);
     }
+  }
+
+  toAddCandidate(addCandidate){ 
+    let selectedCandidates = this.state.selectedCandidates; 
+    selectedCandidates.push(addCandidate); 
+    this.setState({selectedCandidates})
+    let candidateList = this.state.candidateList.filter(candidate => ( 
+      candidate.candidate !== addCandidate.candidate
+    ))
+    this.setState({candidateList})
+
+  }
+
+  
+
+  toRemoveCanidate(remCandidate){ 
+    let candidates = this.state.selectedCandidates; 
+    let selectedCandidates = candidates.filter(candidate => ( 
+      candidate.candidate !== remCandidate.candidate
+    )); 
+    this.setState({selectedCandidates})
+    let candidateList = this.state.candidateList; 
+    candidateList.push(remCandidate); 
+    this.setState({candidateList}); 
   }
 
   render() {
@@ -163,18 +204,40 @@ class AdminPage extends Component {
       </div>
     ) : (
       <div>
-        <form>
-          <select name="candidate" onChange={this.handleChange}>
-            {this.state.candidateList.map(candidate => (
-              <option value={JSON.stringify(candidate)}>
-                {candidate.candidate} - {candidate.state}
-              </option>
-            ))}
-          </select>
-        </form>
-        <button className="btn btn-primary" onClick={this.addCandidate}>
-          Add Candidate
+        <button className="btn btn-primary" onClick={this.addCandidates}>
+          Add {this.state.selectedCandidates.length} Candidates
         </button>
+
+        <div>
+          <p>Candidates to Add</p>
+          <ul className="addCandList">
+            {this.state.selectedCandidates.map(candidate => (
+              <li>{candidate.candidate} <button onClick={()=> this.toRemoveCanidate(candidate)}>X</button></li>
+            ))}
+          </ul>
+        </div>
+
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Add</th>
+              <th scope="col">Candidate</th>
+              <th scope="col">State</th>
+            </tr>
+          </thead>
+          <tbody>
+              {this.state.candidateList.map((candidate, i) => ( 
+                <tr key={i}>
+                  <td><button onClick={() => this.toAddCandidate(candidate)}>Add Candidate</button></td>
+                  <td>{candidate.candidate}</td>
+                  <td>{candidate.state}</td>
+                </tr>  
+              ))}
+          </tbody>
+        </table>
+        
+
+
       </div>
     );
   }
