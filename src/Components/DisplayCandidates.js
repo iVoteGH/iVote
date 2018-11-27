@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Table, thead, tr, th, tbody, td } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "whatwg-fetch";
-import { Waiting, MetaMaskWarning } from ".";
-import HOC from "./HOC";
+import React, { Component } from 'react';
+import { Table, thead, tr, th, tbody, td } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'whatwg-fetch';
+import { Waiting, MetaMaskWarning } from '.';
+import HOC from './HOC';
 
 const Msg = () => (
   <div> Congrats! You've almost saved democracy! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
@@ -17,37 +17,37 @@ class DisplayCandidates extends Component {
       selectedCandidate: null,
       candidateName: null,
       cast: false,
-      recipient: ""
+      recipient: '',
     };
   }
 
   sendSms = () => {
-    fetch("/api/messages", {
-      method: "POST",
+    fetch('/api/messages', {
+      method: 'POST',
       headers: {
-        Accept: "application/JSON",
-        "Content-Type": "application/JSON"
+        Accept: 'application/JSON',
+        'Content-Type': 'application/JSON',
       },
-      body: JSON.stringify({ recipient: this.state.recipient })
+      body: JSON.stringify({ recipient: this.state.recipient }),
     })
       .then(res => res.json())
       .then(data => {
         if (data.success) {
           this.setState({
             error: false,
-            submitting: false
+            submitting: false,
           });
         } else {
           this.setState({
             error: true,
-            submitting: false
+            submitting: false,
           });
         }
       });
   };
 
   render() {
-    console.log("account HEREEE", this.props.account);
+    console.log('account HEREEE', this.props.account);
     return (
       <div>
         {!this.props.account ? (
@@ -56,6 +56,9 @@ class DisplayCandidates extends Component {
           <Waiting sendSMS={this.sendSms} />
         ) : this.props.candidates && this.props.candidates.length > 0 ? (
           <div>
+            <br />
+            <br />
+            <h2>Select a Candidate</h2>
             <table className="table">
               <thead className="thead-dark">
                 <tr>
@@ -71,7 +74,7 @@ class DisplayCandidates extends Component {
                     onClick={() =>
                       this.setState({
                         selectedCandidate: candidate[0].toString(),
-                        candidateName: candidate[1].toString()
+                        candidateName: candidate[1].toString(),
                       })
                     }
                   >

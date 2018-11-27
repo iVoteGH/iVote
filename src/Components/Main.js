@@ -1,11 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import HOC from "./HOC";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import HOC from './HOC';
 
 const Main = props => {
   return (
     <div>
-      <h1>All Duels</h1>
+      <br />
+      <br />
       {props.elections.map(election => (
         <Link to="/info">
           <div className="election-container">

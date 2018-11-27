@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Chakra Petch, Merriweather, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .container {
@@ -9,5 +9,5 @@ body {
 }
 
 .bg-card {
-  color: red
+  color: red;
 }
