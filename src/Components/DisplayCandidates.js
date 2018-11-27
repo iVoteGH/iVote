@@ -47,7 +47,6 @@ class DisplayCandidates extends Component {
   };
 
   render() {
-    console.log('account HEREEE', this.props.account);
     return (
       <div>
         {!this.props.account ? (
@@ -59,7 +58,7 @@ class DisplayCandidates extends Component {
             <br />
             <br />
             <h2>Select a Candidate</h2>
-            <table className="table">
+            <table className="table table-hover">
               <thead className="thead-dark">
                 <tr>
                   <th scope="col">#</th>
