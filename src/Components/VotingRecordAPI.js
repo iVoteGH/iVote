@@ -32,12 +32,13 @@ class VotingRecordAPI extends Component {
     let libAgree;
     let conAgree;
 
-    if (party === "D") {
-      libAgree = Math.floor(votesWithParty);
-      conAgree = 100 - libAgree;
-    } else if (party === "R") {
-      conAgree = Math.floor(votesWithParty);
+    
+    if (party === "R") {
+      conAgree = Math.round(votesWithParty);
       libAgree = 100 - conAgree;
+    } else { 
+      libAgree = Math.round(votesWithParty);
+      conAgree = 100 - libAgree;
     }
 
     this.setState({ votingComparisons: { libAgree, conAgree } });

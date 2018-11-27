@@ -29,6 +29,10 @@
   width: 150px;
 }
 
+.addCandList { 
+  list-style-type: none; 
+}
+
 #partyIconImg {
   height: 20%;
   width: 20%;

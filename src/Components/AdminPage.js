@@ -6,51 +6,50 @@ class AdminPage extends Component {
     super(props);
     this.state = {
       admin: false,
-      candidate: '',
-      state: '',
+      selectedCandidates: [], 
       candidateList: [
+        { candidate: 'Doug Jones', state: 'AL' },
+        { candidate: 'Richard Shelby', state: 'AL' },
+        { candidate: 'Lisa Murkowski', state: 'AK' },
+        { candidate: 'Dan Sullivan', state: 'AK' },
         { candidate: 'Jeff Flake', state: 'AZ' },
-        { candidate: 'Diane Feinstein', state: 'CA' },
-        { candidate: 'Jeff Flake', state: 'AZ' },
-        { candidate: 'Mark Warner', state: 'VA' },
-        { candidate: 'Lisa Murkowski', state: 'AL' },
-        { candidate: 'Daniel S. Sullivan', state: 'AL' },
         { candidate: 'Jon Kyl', state: 'AZ' },
-        { candidate: 'John Boozman', state: 'AK' },
-        { candidate: 'Tom Cotton', state: 'AK' },
-        { candidate: 'Kamala D. Harris', state: 'CA' },
-        { candidate: 'Micheal Bennet', state: 'CO' },
+        { candidate: 'John Boozman', state: 'AR' },
+        { candidate: 'Tom Cotton', state: 'AR' },
+        { candidate: 'Dianne Feinstein', state: 'CA' },
+        { candidate: 'Kamala Harris', state: 'CA' },
+        { candidate: 'Michael Bennet', state: 'CO' },
         { candidate: 'Cory Gardner', state: 'CO' },
         { candidate: 'Richard Blumenthal', state: 'CT' },
-        { candidate: 'Christopher S. Murphy', state: 'CT' },
-        { candidate: 'Tom Carper', state: 'DE' },
-        { candidate: 'Chris Coons', state: 'DE' },
+        { candidate: 'Christopher Murphy', state: 'CT' },
+        { candidate: 'Thomas Carper', state: 'DE' },
+        { candidate: 'Christopher Coons', state: 'DE' },
         { candidate: 'Bill Nelson', state: 'FL' },
         { candidate: 'Marco Rubio', state: 'FL' },
         { candidate: 'Johnny Isakson', state: 'GA' },
         { candidate: 'David Perdue', state: 'GA' },
-        { candidate: 'Brian E. Schatz', state: 'HI' },
-        { candidate: 'Mazie K. Hirono', state: 'HI' },
-        { candidate: 'Mike Crapo', state: 'ID' },
+        { candidate: 'Brian Schatz', state: 'HI' },
+        { candidate: 'Mazie Hirono', state: 'HI' },
+        { candidate: 'Charles Grassley', state: 'IA' },
+        { candidate: 'Joni Ernst', state: 'IA' },
+        { candidate: 'Michael Crapo', state: 'ID' },
         { candidate: 'Jim Risch', state: 'ID' },
-        { candidate: 'Dick Durbin', state: 'IL' },
+        { candidate: 'Richard Durbin', state: 'IL' },
         { candidate: 'Tammy Duckworth', state: 'IL' },
         { candidate: 'Joe Donnelly', state: 'IN' },
-        { candidate: 'Todd C. Young', state: 'IN' },
-        { candidate: 'Chuck Grassley', state: 'IA' },
-        { candidate: 'Joni Ernst', state: 'IA' },
+        { candidate: 'Todd Young', state: 'IN' },
         { candidate: 'Pat Roberts', state: 'KS' },
         { candidate: 'Jerry Moran', state: 'KS' },
         { candidate: 'Mitch McConnell', state: 'KY' },
         { candidate: 'Rand Paul', state: 'KY' },
         { candidate: 'Bill Cassidy', state: 'LA' },
-        { candidate: 'John Neely Kennedy', state: 'LA' },
+        { candidate: 'John Kennedy', state: 'LA' },
+        { candidate: 'Elizabeth Warren', state: 'MA' },
+        { candidate: 'Edward Markey', state: 'MA' },
+        { candidate: 'Benjamin Cardin', state: 'MD' },
+        { candidate: 'Chris Van Hollen', state: 'MD' },
         { candidate: 'Susan Collins', state: 'ME' },
         { candidate: 'Angus King', state: 'ME' },
-        { candidate: 'Ben Cardin', state: 'MD' },
-        { candidate: 'Chris Van Hollen', state: 'MD' },
-        { candidate: 'Elizabeth Warren', state: 'MA' },
-        { candidate: 'Ed Markey', state: 'MA' },
         { candidate: 'Debbie Stabenow', state: 'MI' },
         { candidate: 'Gary Peters', state: 'MI' },
         { candidate: 'Amy Klobuchar', state: 'MN' },
@@ -66,8 +65,8 @@ class AdminPage extends Component {
         { candidate: 'Dean Heller', state: 'NV' },
         { candidate: 'Catherine Cortez Masto', state: 'NV' },
         { candidate: 'Jeanne Shaheen', state: 'NH' },
-        { candidate: 'Maggie Hassan', state: 'NH' },
-        { candidate: 'Bob Menendez', state: 'NJ' },
+        { candidate: 'Margaret Hassan', state: 'NH' },
+        { candidate: 'Robert Menendez', state: 'NJ' },
         { candidate: 'Cory Booker', state: 'NJ' },
         { candidate: 'Tom Udall', state: 'NM' },
         { candidate: 'Martin Heinrich', state: 'NM' },
@@ -79,12 +78,12 @@ class AdminPage extends Component {
         { candidate: 'Heidi Heitkamp', state: 'ND' },
         { candidate: 'Sherrod Brown', state: 'OH' },
         { candidate: 'Rob Portman', state: 'OH' },
-        { candidate: 'Jim Inhofe', state: 'OK' },
+        { candidate: 'James Inhofe', state: 'OK' },
         { candidate: 'James Lankford', state: 'OK' },
         { candidate: 'Ron Wyden', state: 'OR' },
         { candidate: 'Jeff Merkley', state: 'OR' },
-        { candidate: 'Bob Casey Jr.', state: 'PA' },
-        { candidate: 'Pat Toomey', state: 'PA' },
+        { candidate: 'Bob Casey', state: 'PA' },
+        { candidate: 'Patrick Toomey', state: 'PA' },
         { candidate: 'Jack Reed', state: 'RI' },
         { candidate: 'Sheldon Whitehouse', state: 'RI' },
         { candidate: 'Lindsey Graham', state: 'SC' },
@@ -100,24 +99,36 @@ class AdminPage extends Component {
         { candidate: 'Patrick Leahy', state: 'VT' },
         { candidate: 'Bernard Sanders', state: 'VT' },
         { candidate: 'Tim Kaine', state: 'VA' },
+        { candidate: 'Mark Warner', state: 'VA' },
         { candidate: 'Patty Murray', state: 'WA' },
         { candidate: 'Maria Cantwell', state: 'WA' },
-        { candidate: 'Joe Manchin III', state: 'WV' },
-        { candidate: 'Shelley Moore Capito', state: 'WV' },
-        { candidate: 'Ronald Harold Johnson', state: 'WI' },
+        { candidate: 'Joe Manchin', state: 'WV' },
+        { candidate: 'Shelley Capito', state: 'WV' },
+        { candidate: 'Ron Johnson', state: 'WI' },
         { candidate: 'Tammy Baldwin', state: 'WI' },
         { candidate: 'John Barrasso', state: 'WY' },
-        { candidate: 'Mike Enzi', state: 'WY' },
-        { candidate: 'Doug Jones', state: 'AL' },
-        { candidate: 'Richard Shelby', state: 'AL' },
+        { candidate: 'Michael Enzi', state: 'WY' },
       ],
       adminStatus: false,
       checked: false,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.addCandidate = this.addCandidate.bind(this);
+    this.addCandidates = this.addCandidates.bind(this);
     this.getAdminStatus = this.getAdminStatus.bind(this);
+    this.toAddCandidate = this.toAddCandidate.bind(this); 
+    this.toRemoveCanidate = this.toRemoveCanidate.bind(this); 
+    this.filterCandidates = this.filterCandidates.bind(this); 
   }
+
+
+  filterCandidates(){ 
+    const contractCandidates = this.props.candidates.map(candidate => (candidate[1])); 
+    let remainingCandidates = this.state.candidateList.filter(candidate => (
+      !contractCandidates.includes(candidate.candidate)
+    ))
+    this.setState({candidateList: remainingCandidates})
+  }
+  
 
   async getAdminStatus() {
     try {
@@ -125,6 +136,7 @@ class AdminPage extends Component {
       await window.web3.eth.getAccounts(async (err, [account]) => {
         let adminStatus = await admins(account);
         this.setState({ adminStatus, checked: true });
+        this.filterCandidates(); 
       });
     } catch (error) {
       console.error(error);
@@ -136,21 +148,50 @@ class AdminPage extends Component {
     this.setState({ candidate: parsed.candidate, state: parsed.state });
   }
 
-  async addCandidate() {
+  async addCandidates() {
     try {
-      if (this.state.candidate !== '' && this.state.state !== '') {
+      if (this.state.selectedCandidates.length) {
+
+        const candidates = this.state.selectedCandidates; 
         const { addCandidate } = this.props.electionInstance;
-        await window.web3.eth.getAccounts((err, [account]) => {
-          addCandidate(this.state.candidate, this.state.state, {
-            from: account,
-          });
-        });
+
+          for (let i = 0; i < this.state.selectedCandidates.length; i++) { 
+            await window.web3.eth.getAccounts((err, [account]) => {
+              addCandidate(candidates[i].candidate, candidates[i].state, {
+                from: account,
+              })})
+          }
+
       } else {
-        throw 'Please pick a candidate and state';
+        throw 'Please pick a candidate to add';
       }
     } catch (err) {
       console.error(err);
     }
+  }
+
+  toAddCandidate(addCandidate){ 
+    let selectedCandidates = this.state.selectedCandidates; 
+    selectedCandidates.push(addCandidate); 
+    this.setState({selectedCandidates})
+    let candidateList = this.state.candidateList.filter(candidate => ( 
+      candidate.candidate !== addCandidate.candidate
+    ))
+    this.setState({candidateList})
+
+  }
+
+  
+
+  toRemoveCanidate(remCandidate){ 
+    let candidates = this.state.selectedCandidates; 
+    let selectedCandidates = candidates.filter(candidate => ( 
+      candidate.candidate !== remCandidate.candidate
+    )); 
+    this.setState({selectedCandidates})
+    let candidateList = this.state.candidateList; 
+    candidateList.push(remCandidate); 
+    this.setState({candidateList}); 
   }
 
   render() {
@@ -163,18 +204,40 @@ class AdminPage extends Component {
       </div>
     ) : (
       <div>
-        <form>
-          <select name="candidate" onChange={this.handleChange}>
-            {this.state.candidateList.map(candidate => (
-              <option value={JSON.stringify(candidate)}>
-                {candidate.candidate} - {candidate.state}
-              </option>
-            ))}
-          </select>
-        </form>
-        <button className="btn btn-primary" onClick={this.addCandidate}>
-          Add Candidate
+        <button className="btn btn-primary" onClick={this.addCandidates}>
+          Add {this.state.selectedCandidates.length} Candidates
         </button>
+
+        <div>
+          <p>Candidates to Add</p>
+          <ul className="addCandList">
+            {this.state.selectedCandidates.map(candidate => (
+              <li>{candidate.candidate} <button onClick={()=> this.toRemoveCanidate(candidate)}>X</button></li>
+            ))}
+          </ul>
+        </div>
+
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Add</th>
+              <th scope="col">Candidate</th>
+              <th scope="col">State</th>
+            </tr>
+          </thead>
+          <tbody>
+              {this.state.candidateList.map((candidate, i) => ( 
+                <tr key={i}>
+                  <td><button onClick={() => this.toAddCandidate(candidate)}>Add Candidate</button></td>
+                  <td>{candidate.candidate}</td>
+                  <td>{candidate.state}</td>
+                </tr>  
+              ))}
+          </tbody>
+        </table>
+        
+
+
       </div>
     );
   }

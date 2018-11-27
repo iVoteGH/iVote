@@ -21,9 +21,9 @@ class Results extends Component {
         {data[0] ? (
           <VictoryChart domain={{ y: [0, 10] }} domainPadding={{ x: 30 }}>
             <VictoryBar
-              style={{ data: { fill: '#c43a31' } }}
+              style={{ data: { fill: '#c43a31' }, tickLabels: {fontSize: "8px"} }}
               alignment="middle"
-              barWidth={40}
+              barWidth={20}
               data={data}
               // data accessor for x values
               x="name"
