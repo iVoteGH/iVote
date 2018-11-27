@@ -47,7 +47,6 @@ class DisplayCandidates extends Component {
   };
 
   render() {
-    console.log('account HEREEE', this.props.account);
     return (
       <div>
         {!this.props.account ? (
