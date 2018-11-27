@@ -1,12 +1,12 @@
-require("../secrets");
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+require('../secrets');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const PORT = process.env.Port || 8080;
-const NewsAPI = require("newsapi");
+const NewsAPI = require('newsapi');
 const app = express();
-const axios = require("axios");
-const client = require("twilio")(
+const axios = require('axios');
+const client = require('twilio')(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
 );
@@ -19,7 +19,7 @@ app.use(cors());
 
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
-app.get("/api/search", async (req, res, next) => {
+app.get('/api/search', async (req, res, next) => {
   let q = req.query.q;
   let selectedSources = req.query.sources;
   let from = req.query.from;
@@ -29,11 +29,11 @@ app.get("/api/search", async (req, res, next) => {
     let response = await newsapi.v2.everything({
       q,
       sources: selectedSources,
-      language: "en",
-      sortBy: "publishedAt",
+      language: 'en',
+      sortBy: 'publishedAt',
       from,
       to,
-      pageSize: 6
+      pageSize: 3,
     });
     res.status(200).json(response);
   } catch (err) {
@@ -41,18 +41,18 @@ app.get("/api/search", async (req, res, next) => {
   }
 });
 
-app.get("/api/memId/:state", async (req, res, next) => {
+app.get('/api/memId/:state', async (req, res, next) => {
   //two candidate id's
   try {
     const response = await axios({
       url: `https://api.propublica.org/congress/v1/members/senate/${
         req.params.state
       }/current.json`,
-      method: "GET",
-      dataType: "json",
+      method: 'GET',
+      dataType: 'json',
       headers: {
-        "X-API-Key": process.env.PROPUBLICA_CONGRESS_API_KEY
-      }
+        'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY,
+      },
     });
     res.status(200).json(response.data);
   } catch (error) {
@@ -60,18 +60,18 @@ app.get("/api/memId/:state", async (req, res, next) => {
   }
 });
 
-app.get("/api/members/:memId", async (req, res, next) => {
+app.get('/api/members/:memId', async (req, res, next) => {
   //two candidate id's
   try {
     const response = await axios({
       url: `https://api.propublica.org/congress/v1/members/${
         req.params.memId
       }.json`,
-      method: "GET",
-      dataType: "json",
+      method: 'GET',
+      dataType: 'json',
       headers: {
-        "X-API-Key": process.env.PROPUBLICA_CONGRESS_API_KEY
-      }
+        'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY,
+      },
     });
     res.status(200).json(response.data);
   } catch (error) {
@@ -79,17 +79,17 @@ app.get("/api/members/:memId", async (req, res, next) => {
   }
 });
 
-app.get("/api/pressReleases/:memId", async (req, res, next) => {
+app.get('/api/pressReleases/:memId', async (req, res, next) => {
   try {
     const response = await axios({
       url: `https://api.propublica.org/congress/v1/members/${
         req.params.memId
       }/statements/115.json`,
-      method: "GET",
-      dataType: "json",
+      method: 'GET',
+      dataType: 'json',
       headers: {
-        "X-API-Key": process.env.PROPUBLICA_CONGRESS_API_KEY
-      }
+        'X-API-Key': process.env.PROPUBLICA_CONGRESS_API_KEY,
+      },
     });
     res.status(200).json(response.data);
   } catch (error) {
@@ -97,21 +97,21 @@ app.get("/api/pressReleases/:memId", async (req, res, next) => {
   }
 });
 
-app.post("/api/messages", (req, res) => {
-  res.header("Content-Type", "application/json");
+app.post('/api/messages', (req, res) => {
+  res.header('Content-Type', 'application/json');
   const number = process.env.MY_NUMBER;
   const from = process.env.TWILIO_PHONE_NUMBER;
-  const body = "Congrats! Your vote has been registered!";
+  const body = 'Congrats! Your vote has been registered!';
   client.messages
     .create({
       body: body,
       from: from,
       mediaUrl:
-        "https://sayingimages.com/wp-content/uploads/welcome-to-adult-life-congratulations-meme.png",
-      to: number
+        'https://sayingimages.com/wp-content/uploads/welcome-to-adult-life-congratulations-meme.png',
+      to: number,
     })
     .then(() => {
-      console.log("Messages sent!");
+      console.log('Messages sent!');
       res.send(JSON.stringify({ success: true }));
     })
     .catch(err => {

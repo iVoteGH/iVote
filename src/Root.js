@@ -18,8 +18,6 @@ const Root = () => {
         <Navbar />
         <main>
           <div className="container text-center">
-            <h1>Duel of 1804</h1>
-            <p>Federalists v Democratic-Republicans</p>
             <Switch>
               <Route exact path="/" component={Main} />
               <Route exact path="/info" component={Info} />

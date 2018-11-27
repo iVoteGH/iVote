@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class NewsAPI extends Component {
   constructor() {
     super();
     this.state = {
       articles: [],
-      singleSource: ""
+      singleSource: '',
     };
     this.artToState = this.artToState.bind(this);
   }
@@ -51,9 +51,9 @@ class NewsAPI extends Component {
               {this.state.articles.map(art => (
                 <div>
                   <p className="press-releases">
-                    <img src={art.urlToImage} height="50" />
-                    <a href={art.url}>{art.title}</a>
-                    <p>{Date(art.publishedAt).slice(0, 15)}</p>
+                    <img src={art.urlToImage} height="50" />{' '}
+                    <a href={art.url}>{art.title}</a> <br />
+                    <small>{Date(art.publishedAt).slice(0, 15)}</small>
                   </p>
                 </div>
               ))}
@@ -87,9 +87,9 @@ class NewsAPI extends Component {
               {this.state.articles.map(art => (
                 <div>
                   <p className="press-releases">
-                    <img src={art.urlToImage} height="50" />
-                    <a href={art.url}>{art.title}</a>
-                    <p>{Date(art.publishedAt).slice(0, 15)}</p>
+                    <img src={art.urlToImage} height="50" />{' '}
+                    <a href={art.url}>{art.title}</a> <br />
+                    <small>{Date(art.publishedAt).slice(0, 15)}</small>
                   </p>
                 </div>
               ))}
@@ -123,9 +123,9 @@ class NewsAPI extends Component {
               {this.state.articles.map(art => (
                 <div>
                   <p className="press-releases">
-                    <img src={art.urlToImage} height="50" />
-                    <a href={art.url}>{art.title}</a>
-                    <p>{Date(art.publishedAt).slice(0, 15)}</p>
+                    <img src={art.urlToImage} height="50" />{' '}
+                    <a href={art.url}>{art.title}</a> <br />
+                    <small>{Date(art.publishedAt).slice(0, 15)}</small>
                   </p>
                 </div>
               ))}

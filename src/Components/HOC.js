@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Election from "../../build/contracts/Election.json";
+import React, { Component } from 'react';
+import Election from '../../build/contracts/Election.json';
 
 const HOC = OtherComponent => {
   return class Vote extends Component {
@@ -8,11 +8,11 @@ const HOC = OtherComponent => {
       this.state = {
         electionInstance: {},
         candidates: [],
-        account: "",
+        account: '',
         adminStatus: false,
         votedStatus: null,
         cast: false,
-        elections: [ { name: "2018" } ]
+        elections: [{ name: '2020 Fantasy Election Draft' }],
       };
       this.castVote = this.castVote.bind(this);
       this.getAdminStatus = this.getAdminStatus.bind(this);
@@ -28,12 +28,14 @@ const HOC = OtherComponent => {
         await this.getVoterState();
         // Obtain whether account is an admin
         await this.getAdminStatus();
-      } catch (err) { console.error(err) }
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     async instantiateContract() {
       try {
-        const contract = require("truffle-contract");
+        const contract = require('truffle-contract');
         const electionContract = contract(Election);
         // IMPORTANT:
         // Set provider of contract's instance to the blockchain node currently connected to
@@ -42,7 +44,9 @@ const HOC = OtherComponent => {
         const electionInstance = await electionContract.deployed();
         // Set the instance of contract to local state
         this.setState({ electionInstance });
-      } catch (err) { console.error(err) }
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     async getCandidateCount() {
@@ -54,7 +58,9 @@ const HOC = OtherComponent => {
         }
         const candidates = await Promise.all(pendingCandidatesArr);
         this.setState({ candidates });
-      } catch (err) { console.error(err) }
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     async getVoterState() {
@@ -67,21 +73,22 @@ const HOC = OtherComponent => {
             this.setState({ cast: true });
           }
         });
-      } catch (err) { console.error(err) }
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     async getAdminStatus() {
-      try{
-          const {admins} = this.state.electionInstance;
-          await window.web3.eth.getAccounts(async (err, [account]) => {
-              let adminStatus = await admins(account);
-              this.setState({adminStatus})
-          })
-
-      }catch (error) {
-          console.error(error);
+      try {
+        const { admins } = this.state.electionInstance;
+        await window.web3.eth.getAccounts(async (err, [account]) => {
+          let adminStatus = await admins(account);
+          this.setState({ adminStatus });
+        });
+      } catch (error) {
+        console.error(error);
       }
-  }
+    }
 
     async castVote(idx) {
       try {
@@ -90,7 +97,9 @@ const HOC = OtherComponent => {
           vote(idx, { from: account });
         });
         this.setState({ cast: true });
-      } catch (err) { console.error(err) }
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     render() {
