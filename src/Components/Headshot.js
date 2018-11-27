@@ -32,7 +32,7 @@ class Headshot extends Component {
     this.setState({ hsLink });
   }
   render() {
-    return <img id="headShotImg" src={this.state.hsLink} />;
+    return <img className="headShotImg" src={this.state.hsLink} />;
   }
 }
 
