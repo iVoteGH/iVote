@@ -1,12 +1,10 @@
 import React from 'react';
-import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import {
   Vote,
   Results,
   Info,
   Main,
-  NewsAPI,
-  VotingRecordAPI,
   AdminPage,
   Navbar,
   Footer,
@@ -28,7 +26,18 @@ const Root = () => {
             </Switch>
           </div>
         </main>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p id="footerText">Powered by ProPublica Congress API and NewsAPI</p>
         <Footer />
+        <br />
+        <br />
       </div>
     </Router>
   );
