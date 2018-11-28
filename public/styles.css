@@ -128,3 +128,7 @@ html {
 .btn-navy:hover {
   background-color: red;
 }
+
+.addCandList {
+  justify-content: left;
+}

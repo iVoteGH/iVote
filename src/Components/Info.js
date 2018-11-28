@@ -79,12 +79,6 @@ class Info extends Component {
               </a>
             )}
           </div>
-          <br />
-          <div>
-            <a className="btn btn-primary btn-lg" role="button" href="/results">
-              Results
-            </a>
-          </div>
         </div>
         <br />
         <img
