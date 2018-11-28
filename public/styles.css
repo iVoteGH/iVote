@@ -75,15 +75,16 @@ html {
 .card-header p {
   text-decoration: none;
   text-decoration-line: none;
-  color: white;
+  color: black;
   font-size: 120%;
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
 
 .card-header:hover {
-  background-color: #0000ff;
-  opacity: 0.9;
+  background-color: #0000ff46;
+  /* opacity: 0.9; */
+  color: white;
   /* box-shadow: 0 0 2px 1px rgba(252, 252, 13, 0.845); */
 }
 
@@ -109,11 +110,15 @@ html {
 
 .candidate-name-heading {
   text-decoration: none;
-  color: green;
+  color: green !;
 }
 
 #cardHeading {
   background-color: white;
+}
+
+#black {
+  color: red !important;
 }
 
 #candidatesImg {

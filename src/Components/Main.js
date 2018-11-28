@@ -8,13 +8,11 @@ const Main = props => {
       <div id="main">
         {props.elections.map(election => (
           <div>
-            <Link to="/info">
-              <div>
-                <h1 className="font-effect-neon" key={election.name}>
-                  {election.name}
-                </h1>
-              </div>
-            </Link>
+            <div>
+              <h1 className="font-effect-neon" key={election.name}>
+                {election.name}
+              </h1>
+            </div>
             <Link to="/instructions">
               <button type="button" className="btn btn-danger btn-lg">
                 Instructions on How to Vote

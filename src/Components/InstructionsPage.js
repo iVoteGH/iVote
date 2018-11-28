@@ -8,7 +8,7 @@ const InstructionsPage = () => {
         <br />
         <br />
         <Link to="/blockchain">
-          <button type="button" className="btn btn-danger btn-lg">
+          <button type="button" className="btn btn-navy btn-lg text-white">
             What is blockchain?
           </button>
         </Link>

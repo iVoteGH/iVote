@@ -75,11 +75,14 @@ class Info extends Component {
             <div className="row col-sm-6 ">
               <div className="col-md-12">
                 <div
-                  className="card bg-primary candidate-card"
+                  className="card border-primary candidate-card text-black"
                   id="cardHeading"
                 >
                   <div className="card-header" id={`heading${index}`}>
-                    <h5 className="mb-0 candidate-name-heading">
+                    <h5
+                      className="mb-0 candidate-name-heading text-dark"
+                      id="black"
+                    >
                       <button
                         className="btn btn-link text-black candidate-info-card"
                         data-toggle="collapse"
