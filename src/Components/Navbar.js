@@ -11,6 +11,12 @@ const Navbar = props => {
         <a className="navbar-brand" href="/">
           Home<span className="sr-only">(current)</span>
         </a>
+        <a className="navbar-brand" href="/">
+          Why Blockchain?
+        </a>
+        <a className="navbar-brand" href="/instructions"> 
+          Instructions
+        </a>
         <a className="navbar-brand" href="/info">
           Candidates
         </a>

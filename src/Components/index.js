@@ -15,6 +15,7 @@ import Navbar from './Navbar.js';
 import Headshot from './Headshot.js';
 import PartyIcon from './PartyIcon.js';
 import Footer from './Footer.js';
+import InstructionsPage from './InstructionsPage'
 
 export {
   DisplayCandidates,
@@ -34,4 +35,5 @@ export {
   Headshot,
   PartyIcon,
   Footer,
+  InstructionsPage
 };
