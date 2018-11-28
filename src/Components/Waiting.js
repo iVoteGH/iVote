@@ -5,17 +5,45 @@ const Waiting = props => {
   return (
     <div>
       <br />
-      <br />
       <h4>Thank you for selecting your candidate!</h4>
+      <h4>
+        Please submit your vote using MetaMask.{' '}
+        <img src="metamask.png" height="25px" />
+      </h4>
+      <div>
+        <table className="table table-borderless">
+          <tr>
+            <td>
+              <h4>
+                <strong>Step 1</strong>
+              </h4>
+            </td>
+            <td> </td>
+            <td>
+              <h4>
+                <strong>Step 2</strong>
+              </h4>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="step6.gif" />
+            </td>
+            <td> </td>
+            <td>
+              <img src="step6.gif" />
+            </td>
+          </tr>
+        </table>
+      </div>
       <br />
-      <h4>Please checkout using MetaMask.</h4>
-      <img src="step6.gif" />
-      <br />
-      <h4>When you have finshed voting </h4>
+      <h4>
+        <strong>Step 3</strong>
+      </h4>
       <br />
       <a
         onClick={props.sendSMS}
-        className="btn btn-navy text-white"
+        className="btn btn-navy btn-lg text-white"
         role="button"
         href="/results"
       >
