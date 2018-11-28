@@ -101,7 +101,7 @@ class DisplayCandidates extends Component {
                   toast.success(<Msg />);
                 }}
               >
-                Vote for {this.state.candidateName}
+                <strong>Vote for {this.state.candidateName}</strong>
               </button>
             ) : (
               <button
@@ -109,7 +109,7 @@ class DisplayCandidates extends Component {
                 className="btn btn-secondary btn-lg"
                 disabled
               >
-                Vote for ...
+                <strong>Vote for ...</strong>
               </button>
             )}
           </div>

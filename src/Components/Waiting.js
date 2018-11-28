@@ -47,7 +47,7 @@ const Waiting = props => {
         role="button"
         href="/results"
       >
-        Click to View Results
+        <strong>Click to View Results</strong>
       </a>
     </div>
   );
