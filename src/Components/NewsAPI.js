@@ -23,9 +23,9 @@ class NewsAPI extends Component {
   render() {
     return (
       <div className="accordion" id={`newsAccordion${this.props.index}`}>
+        <p>Recent News Articles:</p>
         <div className="card">
           <div className="card-header" id={`headingOne${this.props.index}`}>
-            <p>Recent News Articles:</p>
             <h5 className="mb-0">
               <button
                 className="btn btn-link collapsed"
