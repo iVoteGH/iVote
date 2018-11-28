@@ -6,13 +6,28 @@ const Main = props => {
   return (
     <div className="masthead text-center">
       <div id="main">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         {props.elections.map(election => (
           <div>
-            <div>
-              <h1 className="font-effect-neon" key={election.name}>
-                {election.name}
-              </h1>
+            <div class="night-hotel">
+              2020 &nbsp; &nbsp;Fantasy Election&nbsp; &nbsp; Draft
             </div>
+            <link
+              async
+              href="http://fonts.googleapis.com/css?family=Monoton"
+              data-generated="http://enjoycss.com"
+              rel="stylesheet"
+              type="text/css"
+            />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <Link to="/instructions">
               <button type="button" className="btn btn-danger btn-lg">
                 Instructions on How to Vote
