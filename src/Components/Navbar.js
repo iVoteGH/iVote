@@ -11,18 +11,23 @@ const Navbar = props => {
         <a className="navbar-brand" href="/">
           Home<span className="sr-only">(current)</span>
         </a>
-        <a className="navbar-brand" href="/">
-          Why Blockchain?
-        </a>
-        <a className="navbar-brand" href="/instructions"> 
+        &nbsp;&nbsp;&nbsp;
+        <a className="navbar-brand" href="/instructions">
           Instructions
         </a>
+        &nbsp;&nbsp;&nbsp;
+        <a className="navbar-brand" href="/blockchain">
+          Blockchain
+        </a>
+        &nbsp;&nbsp;&nbsp;
         <a className="navbar-brand" href="/info">
           Candidates
         </a>
+        &nbsp;&nbsp;&nbsp;
         <a className="navbar-brand" href="/results">
           Results
         </a>
+        &nbsp;&nbsp;&nbsp;
         {props.adminStatus ? (
           <a className="navbar-brand" href="/admin">
             Admin

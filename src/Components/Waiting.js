@@ -7,8 +7,8 @@ const Waiting = props => {
       <br />
       <h4>Thank you for selecting your candidate!</h4>
       <h4>
-        Please submit your vote using MetaMask.{' '}
-        <img src="metamask.png" height="25px" />
+        Please <span className="text-danger">submit your vote</span> using
+        MetaMask. <img src="metamask.png" height="25px" />
       </h4>
       <div>
         <table className="table table-borderless">
@@ -47,7 +47,7 @@ const Waiting = props => {
         role="button"
         href="/results"
       >
-        Click to View Results
+        <strong>Click to View Results</strong>
       </a>
     </div>
   );

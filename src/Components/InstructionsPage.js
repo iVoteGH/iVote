@@ -1,8 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const InstructionsPage = () => { 
-    return ( 
+const InstructionsPage = () => {
+  return (
+    <div>
+      <div>
+        <br />
+        <br />
+        <Link to="/blockchain">
+          <button type="button" className="btn btn-navy btn-lg text-white">
+            <strong>What is blockchain?</strong>
+          </button>
+        </Link>
+        <br />
+        <br />
+        <br />
+   
 
         <div className="container-fluid">
             <div className="card-group">
@@ -75,8 +88,10 @@ const InstructionsPage = () => {
                     </Link>
                 </div>
             </div>
+          </div>
         </div>
-    )
-}
+      </div>
+  );
+};
 
-export default InstructionsPage; 
+export default InstructionsPage;

@@ -1,39 +1,45 @@
-import React from "react";
-import HOC from "./HOC";
-import { Link } from "react-router-dom";
+import React from 'react';
+import HOC from './HOC';
+import { Link } from 'react-router-dom';
 
 const Main = props => {
   return (
     <div className="masthead text-center">
       <div id="main">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         {props.elections.map(election => (
           <div>
-            <div>
-                <h1 className="font-effect-neon" key={election.name}>
-                  {election.name}
-                </h1>
-              </div>
-            <Link to="/instructions"><button type="button" className="btn btn-danger btn-lg">Instructions on How to Vote</button></Link>
+            <div class="night-hotel">
+              2020 &nbsp; &nbsp;Fantasy Election&nbsp; &nbsp; Draft
+            </div>
+            <link
+              async
+              href="http://fonts.googleapis.com/css?family=Monoton"
+              data-generated="http://enjoycss.com"
+              rel="stylesheet"
+              type="text/css"
+            />
             <br />
             <br />
-            <Link to="/"><button type="button" className="btn btn-danger btn-lg">Why Blockchain?</button></Link>
+            <br />
+            <br />
+            <br />
+            <Link to="/instructions">
+              <button type="button" className="btn btn-danger btn-lg">
+                <strong>Instructions on How to Vote</strong>
+              </button>
+            </Link>
+            <br />
+            <br />
           </div>
         ))}
-        <a class="btn btn-danger btn-lg" href="/info" role="button">
-          Enter
-        </a>
       </div>
     </div>
   );
 };
 
 export default HOC(Main);
-
-
-// <Link to="/info">
-// <div>
-//   <h1 className="font-effect-neon" key={election.name}>
-//     {election.name}
-//   </h1>
-// </div>
-// </Link>
