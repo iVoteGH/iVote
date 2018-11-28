@@ -1,5 +1,6 @@
 import React from "react";
 import HOC from "./HOC";
+import { Link } from "react-router-dom";
 
 const Main = props => {
   return (
@@ -7,9 +8,15 @@ const Main = props => {
       <div id="main">
         {props.elections.map(election => (
           <div>
-            <h1 className="font-effect-neon" key={election.name}>
-              {election.name}
-            </h1>
+            <div>
+                <h1 className="font-effect-neon" key={election.name}>
+                  {election.name}
+                </h1>
+              </div>
+            <Link to="/instructions"><button type="button" className="btn btn-danger btn-lg">Instructions on How to Vote</button></Link>
+            <br />
+            <br />
+            <Link to="/"><button type="button" className="btn btn-danger btn-lg">Why Blockchain?</button></Link>
           </div>
         ))}
         <a class="btn btn-danger btn-lg" href="/info" role="button">
@@ -22,7 +29,7 @@ const Main = props => {
 
 export default HOC(Main);
 
-// import { Link } from "react-router-dom";
+
 // <Link to="/info">
 // <div>
 //   <h1 className="font-effect-neon" key={election.name}>
