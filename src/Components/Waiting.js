@@ -27,7 +27,7 @@ const Waiting = props => {
           </tr>
           <tr>
             <td>
-              <img src="step6.gif" />
+              <img src="checkout_step1.gif" />
             </td>
             <td> </td>
             <td>
