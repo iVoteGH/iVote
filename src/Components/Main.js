@@ -7,13 +7,16 @@ const Main = props => {
     <div className="masthead text-center">
       <div id="main">
         {props.elections.map(election => (
+          <div>
           <Link to="/info">
             <div>
-              <h1 className="font-effect-neon" key={election.name}>
-                {election.name}
-              </h1>
-            </div>
-          </Link>
+                <h1 className="font-effect-neon" key={election.name}>
+                  {election.name}
+                </h1>
+              </div>
+            </Link>
+            <Link to="/instructions">I<button>nstructions</button></Link>
+          </div>
         ))}
       </div>
     </div>

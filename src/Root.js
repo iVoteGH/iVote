@@ -10,6 +10,7 @@ import {
   AdminPage,
   Navbar,
   Footer,
+  InstructionsPage
 } from './Components';
 
 const Root = () => {
@@ -25,6 +26,7 @@ const Root = () => {
               <Route exact path="/vote" component={Vote} />
               <Route exact path="/results" component={Results} />
               <Route exact path="/admin" component={AdminPage} />
+              <Route exact path="/instructions" component={InstructionsPage}/>
             </Switch>
           </div>
         </main>
