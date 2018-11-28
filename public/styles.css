@@ -7,12 +7,30 @@ html {
   height: 2.5rem;
 }
 
-#navbar a:hover {
+/* #navbar a:hover {
   color: yellow;
 }
 #navbar a:active {
   color: blue;
 }
+#navbar-brand a:focus {
+  color: blue;
+} */
+
+.navbar a {
+  color: #fff;
+  transition: 0.3s red;
+}
+.nav a.hover {
+  background-color: purple;
+}
+
+.nav a.active {
+  background-color: black;
+  color: green;
+  cursor: default;
+}
+
 .row {
   padding: 10px;
 }
