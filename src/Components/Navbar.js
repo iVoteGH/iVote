@@ -36,7 +36,7 @@ class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar navbar-expand-lg navbar-dark bg-danger text-white"
+          className="navbar navbar-expand-lg navbar-dark bg-danger text-primary"
           id="navbar"
         >
           <ul className="navbar-nav">

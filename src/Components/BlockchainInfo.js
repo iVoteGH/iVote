@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const BlockchainInfo = () => {
   return (
@@ -52,6 +52,14 @@ const BlockchainInfo = () => {
       <Link to="/info">
         <button type="button" className="btn btn-navy btn-lg text-white">
           <strong>View Candidates!</strong>
+        </button>
+      </Link>
+      <br />
+      <br />
+      <br />
+      <Link to="/instructions">
+        <button type="button" className="btn btn-navy btn-lg text-white">
+          <strong>Back to Instructions!</strong>
         </button>
       </Link>
     </div>
