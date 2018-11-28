@@ -50,7 +50,7 @@ const BlockchainInfo = () => {
       </p>
       <br />
       <Link to="/info">
-        <button type="button" className="btn btn-danger btn-lg">
+        <button type="button" className="btn btn-navy btn-lg text-white">
           View Candidates!
         </button>
       </Link>

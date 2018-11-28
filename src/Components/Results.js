@@ -14,15 +14,24 @@ class Results extends Component {
       });
     });
 
+    console.log(data);
     return (
       <div>
         <br />
-        <h2>Live 2020 Fantasy Election Draft Vote Count</h2>
+        <h1>
+          <img src="DNC.png" height="50px" />
+          <strong>
+            {' '}
+            Live 2020 <span className="text-danger">Fantasy</span> Election
+            Draft Vote Count{' '}
+          </strong>
+          <img src="GOP.png" height="50px" />
+        </h1>
         {data[0] ? (
           <VictoryChart domain={{ y: [0, 14] }} domainPadding={{ x: 30 }}>
             <VictoryBar
               style={{
-                data: { fill: '#c43a31' },
+                data: { fill: data => (data.id % 2 ? 'blue' : 'red') },
                 tickLabels: { fontSize: '8px' },
               }}
               alignment="middle"
