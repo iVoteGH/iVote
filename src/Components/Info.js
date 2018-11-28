@@ -59,6 +59,34 @@ class Info extends Component {
     return (
       <div>
         <br />
+        <div>
+          <div>
+            {!this.props.votedStatus ? (
+              <a
+                className="btn btn-navy btn-lg text-white"
+                role="button"
+                href="/vote"
+              >
+                Click Here to Go Vote!
+              </a>
+            ) : (
+              <a
+                className="btn btn-navy btn-lg btn-block text-white"
+                role="button"
+                onClick={this.toggle}
+              >
+                Click Here to Go Vote!
+              </a>
+            )}
+          </div>
+          <br />
+          <div>
+            <a className="btn btn-primary btn-lg" role="button" href="/results">
+              Results
+            </a>
+          </div>
+        </div>
+        <br />
         <img
           src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
           id="candidatesImg"
@@ -71,7 +99,10 @@ class Info extends Component {
           {this.props.candidates.map((candidate, index) => (
             <div className="row col-sm-6 ">
               <div className="col-md-12">
-                <div className="card bg-primary candidate-card" id="cardHeading">
+                <div
+                  className="card bg-primary candidate-card"
+                  id="cardHeading"
+                >
                   <div className="card-header" id={`heading${index}`}>
                     <h5 className="mb-0 candidate-name-heading">
                       <button
@@ -81,7 +112,7 @@ class Info extends Component {
                         aria-expanded="false"
                         aria-controls={`collapse${index}`}
                       >
-                      <PartyIcon
+                        <PartyIcon
                           candidate={candidate[1]}
                           state={candidate[3]}
                         />
@@ -94,7 +125,6 @@ class Info extends Component {
                           state={candidate[3]}
                         />
                         <p>{candidate[1]}</p>
-                        
                       </button>
                     </h5>
                   </div>
@@ -104,66 +134,80 @@ class Info extends Component {
                   className="collapse hide"
                   aria-labelledby={`heading${index}`}
                 >
-                  <div className="card-body scroll">
+                  <div className="card-body">
                     <p>Current Vote Count: {candidate[2].toString()}</p>
-                    <p>
-                      <button
-                        className="btn btn-danger"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target={`#votingRecord${index}`}
-                        aria-expanded="false"
-                        aria-controls={`votingRecord${index}`}
-                        value={`${index}`}
-                        onClick={this.clicked}
+                    <div id={`card${index}`}>
+                      <p>
+                        <button
+                          className="btn btn-danger"
+                          type="button"
+                          data-toggle="collapse"
+                          data-target={`#votingRecord${index}`}
+                          aria-expanded="false"
+                          aria-controls={`votingRecord${index}`}
+                          value={`${index}`}
+                          onClick={this.clicked}
+                        >
+                          Voting Record
+                        </button>{' '}
+                        <button
+                          className="btn btn-danger"
+                          type="button"
+                          data-toggle="collapse"
+                          data-target={`#pressReleases${index}`}
+                          aria-expanded="false"
+                          aria-controls={`pressReleases${index}`}
+                        >
+                          Press Releases
+                        </button>{' '}
+                        <button
+                          className="btn btn-danger"
+                          type="button"
+                          data-toggle="collapse"
+                          data-target={`#newsArticles${index}`}
+                          aria-expanded="false"
+                          aria-controls={`newsArticles${index}`}
+                        >
+                          News Articles
+                        </button>
+                      </p>
+                      <div
+                        className="collapse"
+                        id={`votingRecord${index}`}
+                        data-parent={`#card${index}`}
                       >
-                        Voting Record
-                      </button>{' '}
-                      <button
-                        className="btn btn-danger"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target={`#pressReleases${index}`}
-                        aria-expanded="false"
-                        aria-controls={`pressReleases${index}`}
-                      >
-                        Press Releases
-                      </button>{' '}
-                      <button
-                        className="btn btn-danger"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target={`#newsArticles${index}`}
-                        aria-expanded="false"
-                        aria-controls={`newsArticles${index}`}
-                      >
-                        News Articles
-                      </button>
-                    </p>
-                    <div className="collapse" id={`votingRecord${index}`}>
-                      <div className="card card-body">
-                        <VotingRecordAPI
-                          didClick={this.state.didClick[index]}
-                          candidate={candidate[1]}
-                          state={candidate[3]}
-                        />
+                        <div className="card card-body">
+                          <VotingRecordAPI
+                            // didClick={this.state.didClick[index]}
+                            candidate={candidate[1]}
+                            state={candidate[3]}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="collapse" id={`pressReleases${index}`}>
-                      <div className="card card-body">
-                        <PressReleasesAPI
-                          candidate={candidate[1]}
-                          state={candidate[3]}
-                        />
+                      <div
+                        className="collapse"
+                        id={`pressReleases${index}`}
+                        data-parent={`#card${index}`}
+                      >
+                        <div className="card card-body">
+                          <PressReleasesAPI
+                            candidate={candidate[1]}
+                            state={candidate[3]}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="collapse" id={`newsArticles${index}`}>
-                      <div className="card card-body">
-                        <NewsAPI
-                          candidate={candidate[1]}
-                          index={index}
-                          election={this.props.elections[0].name}
-                        />
+                      <div
+                        className="collapse"
+                        id={`newsArticles${index}`}
+                        data-parent={`#card${index}`}
+                      >
+                        <div className="card card-body">
+                          <NewsAPI
+                            candidate={candidate[1]}
+                            index={index}
+                            election={this.props.elections[0].name}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -172,26 +216,6 @@ class Info extends Component {
             </div>
           ))}
         </div>
-        {!this.props.votedStatus ? (
-          <a
-            className="btn btn-primary btn-lg text-white"
-            role="button"
-            href="/vote"
-          >
-            Go to Ballot!
-          </a>
-        ) : (
-          <a
-            className="btn btn-primary btn-lg text-white"
-            role="button"
-            onClick={this.toggle}
-          >
-            Go to Ballot!
-          </a>
-        )}{' '}
-        <a className="btn btn-primary btn-lg" role="button" href="/results">
-          Results
-        </a>
         <div>
           <Modal
             isOpen={this.state.modal}

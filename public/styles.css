@@ -98,46 +98,45 @@ header.masthead p {
   justify-content: center;
 }
 
-.card-header p { 
-  text-decoration: none; 
+.card-header p {
+  text-decoration: none;
   text-decoration-line: none;
-  color: white; 
-  font-size: 120%; 
-  padding-bottom:0px; 
-  margin-bottom: 0px; 
+  color: white;
+  font-size: 120%;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-/* .card-header p a:hover { 
-  text-decoration: none; 
+/* .card-header p a:hover {
+  text-decoration: none;
   text-decoration-line: none;
-  color: white; 
-  font-size: 28px; 
+  color: white;
+  font-size: 28px;
 } */
 
-.addCandList { 
-  list-style-type: none; 
+.addCandList {
+  list-style-type: none;
 }
 
-.candidate-card { 
-  color: green; 
-  background-color: purple; 
+.candidate-card {
+  color: green;
+  background-color: purple;
 }
 
-.candidate-info-card { 
-  text-decoration: none; 
-  text-decoration-line: none; 
-  color: green; 
-  background-color: purple; 
+.candidate-info-card {
+  text-decoration: none;
+  text-decoration-line: none;
+  color: green;
+  background-color: purple;
 }
 
-.candidate-name { 
-  text-decoration: none; 
-  
+.candidate-name {
+  text-decoration: none;
 }
 
-.candidate-name-heading { 
-  text-decoration: none; 
-  color: green; 
+.candidate-name-heading {
+  text-decoration: none;
+  color: green;
 }
 
 #cardHeading {
@@ -155,23 +154,27 @@ header.masthead p {
 
 #partyIconImg {
   /* //margin-top: 20px;  */
-  margin: 50px; 
-  /* padding-top: 50px; 
+  margin: 50px;
+  /* padding-top: 50px;
   padding-left: 20px;  */
   height: 10%;
   width: 10%;
 }
 
 .headShotImg {
-  margin-top: 0px; 
-  padding-top: 0px; 
+  margin-top: 0px;
+  padding-top: 0px;
   height: 25%;
   width: 25%;
-  border: 5px solid white;  
-  border-radius: 15px; 
+  border: 5px solid white;
+  border-radius: 15px;
 }
 
-.scroll {
-  max-height: 380px;
-  overflow-y: auto;
+.btn-navy {
+  background-color: navy;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.btn-navy:hover {
+  background-color: red;
 }
