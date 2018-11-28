@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import HOC from './HOC';
-import axios from 'axios';
+import React, { Component } from "react";
+import HOC from "./HOC";
+import axios from "axios";
 import {
   VotingRecordAPI,
   PressReleasesAPI,
   NewsAPI,
   Headshot,
-  PartyIcon,
-} from '.';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+  PartyIcon
+} from ".";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class Info extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Info extends Component {
     this.state = {
       buttonToggles: [],
       didClick: {},
-      modal: false,
+      modal: false
     };
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -26,11 +26,11 @@ class Info extends Component {
     let response = await axios.get(`/api/memId/${this.props.state}`);
     let candidateName1 =
       response.data.results[0].first_name +
-      ' ' +
+      " " +
       response.data.results[0].last_name;
     let candidateName2 =
       response.data.results[1].first_name +
-      ' ' +
+      " " +
       response.data.results[1].last_name;
     if (candidateName1 === this.props.candidate) {
       memId = response.data.results[0].id;
@@ -71,7 +71,10 @@ class Info extends Component {
           {this.props.candidates.map((candidate, index) => (
             <div className="row col-sm-6 ">
               <div className="col-md-12">
-                <div className="card bg-primary candidate-card" id="cardHeading">
+                <div
+                  className="card bg-primary candidate-card"
+                  id="cardHeading"
+                >
                   <div className="card-header" id={`heading${index}`}>
                     <h5 className="mb-0 candidate-name-heading">
                       <button
@@ -81,7 +84,7 @@ class Info extends Component {
                         aria-expanded="false"
                         aria-controls={`collapse${index}`}
                       >
-                      <PartyIcon
+                        <PartyIcon
                           candidate={candidate[1]}
                           state={candidate[3]}
                         />
@@ -94,7 +97,6 @@ class Info extends Component {
                           state={candidate[3]}
                         />
                         <p>{candidate[1]}</p>
-                        
                       </button>
                     </h5>
                   </div>
@@ -118,7 +120,7 @@ class Info extends Component {
                         onClick={this.clicked}
                       >
                         Voting Record
-                      </button>{' '}
+                      </button>{" "}
                       <button
                         className="btn btn-danger"
                         type="button"
@@ -128,7 +130,7 @@ class Info extends Component {
                         aria-controls={`pressReleases${index}`}
                       >
                         Press Releases
-                      </button>{' '}
+                      </button>{" "}
                       <button
                         className="btn btn-danger"
                         type="button"
@@ -188,7 +190,7 @@ class Info extends Component {
           >
             Go to Ballot!
           </a>
-        )}{' '}
+        )}{" "}
         <a className="btn btn-primary btn-lg" role="button" href="/results">
           Results
         </a>
@@ -202,14 +204,14 @@ class Info extends Component {
               toggle={this.toggle}
               className="col-12 modal-title text-center"
             >
-              <strong>*** VOTER FRAUD ALERT ***</strong>{' '}
+              <strong>*** VOTER FRAUD ALERT ***</strong>{" "}
             </ModalHeader>
             <ModalBody>
-              ⚠️{' '}
+              ⚠️{" "}
               <strong>
                 WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
                 EVEN THINK ABOUT IT!!!
-              </strong>{' '}
+              </strong>{" "}
               ⚠️
               <img src="https://lishacauthen.files.wordpress.com/2013/04/dog_shaking_finger.gif" />
             </ModalBody>

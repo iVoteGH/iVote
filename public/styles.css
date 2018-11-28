@@ -7,13 +7,19 @@ html {
   height: 2.5rem;
 }
 
+#navbar a:hover {
+  color: yellow;
+}
+#navbar a:active {
+  color: blue;
+}
 .row {
   padding: 10px;
 }
 
 #main {
   margin-top: 2.5em;
-  background: url(./bg3.jpg) center center fixed;
+  background: url(./main.jpg) center center fixed;
   background-size: contains;
   /* Set rules to fill background */
   min-height: 100%;
@@ -43,46 +49,44 @@ html {
   justify-content: center;
 }
 
-.card-header p { 
-  text-decoration: none; 
+.card-header p {
+  text-decoration: none;
   text-decoration-line: none;
-  color: white; 
-  font-size: 120%; 
-  padding-bottom:0px; 
-  margin-bottom: 0px; 
+  color: white;
+  font-size: 120%;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-/* .card-header p a:hover { 
-  text-decoration: none; 
+.card-header:hover {
+  background-color: #0000ff;
+  opacity: 0.9;
+  /* box-shadow: 0 0 2px 1px rgba(252, 252, 13, 0.845); */
+}
+
+.addCandList {
+  list-style-type: none;
+}
+
+.candidate-card {
+  color: green;
+  background-color: purple;
+}
+
+.candidate-info-card {
+  text-decoration: none;
   text-decoration-line: none;
-  color: white; 
-  font-size: 28px; 
-} */
-
-.addCandList { 
-  list-style-type: none; 
+  color: green;
+  background-color: purple;
 }
 
-.candidate-card { 
-  color: green; 
-  background-color: purple; 
+.candidate-name {
+  text-decoration: none;
 }
 
-.candidate-info-card { 
-  text-decoration: none; 
-  text-decoration-line: none; 
-  color: green; 
-  background-color: purple; 
-}
-
-.candidate-name { 
-  text-decoration: none; 
-  
-}
-
-.candidate-name-heading { 
-  text-decoration: none; 
-  color: green; 
+.candidate-name-heading {
+  text-decoration: none;
+  color: green;
 }
 
 #cardHeading {
@@ -100,7 +104,7 @@ html {
 
 #partyIconImg {
   /* //margin-top: 20px;  */
-  margin: 50px; 
+  margin: 50px;
   /* padding-top: 50px; 
   padding-left: 20px;  */
   height: 10%;
@@ -108,12 +112,12 @@ html {
 }
 
 .headShotImg {
-  margin-top: 0px; 
-  padding-top: 0px; 
+  margin-top: 0px;
+  padding-top: 0px;
   height: 25%;
   width: 25%;
-  border: 5px solid white;  
-  border-radius: 15px; 
+  border: 5px solid white;
+  border-radius: 15px;
 }
 
 .scroll {

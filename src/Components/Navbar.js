@@ -1,5 +1,5 @@
-import React from 'react';
-import HOC from './HOC';
+import React from "react";
+import HOC from "./HOC";
 
 const Navbar = props => {
   return (
@@ -12,7 +12,7 @@ const Navbar = props => {
           Home<span className="sr-only">(current)</span>
         </a>
         <a className="navbar-brand" href="/info">
-          Candidate Info
+          Candidates
         </a>
         <a className="navbar-brand" href="/results">
           Results
