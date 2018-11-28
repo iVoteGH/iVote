@@ -29,10 +29,11 @@ contract Election {
     // Constructor
     function Election() public {
         addCandidateInit("Kamala Harris", "CA");
-        addCandidateInit("Orrin Hatch", "UT");
-        addCandidateInit("Mark Warner", "VA");
-        addCandidateInit("Kirsten Gillibrand", "NY");
-        addCandidateInit("Jeff Flake", "AZ");
+        addCandidateInit("Ted Cruz", "TX");
+        addCandidateInit("Amy Klobuchar", "MN");
+        addCandidateInit("Rand Paul", "KY");
+        addCandidateInit("Cory Booker", "NJ");
+        addCandidateInit("Lisa Murkowski", "AK");
         addAdmins();
     }
 

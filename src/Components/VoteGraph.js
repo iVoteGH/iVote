@@ -12,7 +12,7 @@ const VoteGraph = props => {
           colorScale={['blue', 'red']}
           height={80}
           width={400}
-          animate={{ duration: 2000 }}
+          // animate={{ duration: 2000 }}
         >
           <VictoryBar data={[{ x: 'a', y: props.libAgree }]} />
           <VictoryBar data={[{ x: 'b', y: props.conAgree }]} />
