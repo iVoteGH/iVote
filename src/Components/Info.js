@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import HOC from './HOC';
-import axios from 'axios';
+import React, { Component } from "react";
+import HOC from "./HOC";
+import axios from "axios";
 import {
   VotingRecordAPI,
   PressReleasesAPI,
   NewsAPI,
   Headshot,
-  PartyIcon,
-} from '.';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+  PartyIcon
+} from ".";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class Info extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Info extends Component {
     this.state = {
       buttonToggles: [],
       didClick: {},
-      modal: false,
+      modal: false
     };
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -26,11 +26,11 @@ class Info extends Component {
     let response = await axios.get(`/api/memId/${this.props.state}`);
     let candidateName1 =
       response.data.results[0].first_name +
-      ' ' +
+      " " +
       response.data.results[0].last_name;
     let candidateName2 =
       response.data.results[1].first_name +
-      ' ' +
+      " " +
       response.data.results[1].last_name;
     if (candidateName1 === this.props.candidate) {
       memId = response.data.results[0].id;
@@ -71,7 +71,7 @@ class Info extends Component {
               </a>
             ) : (
               <a
-                className="btn btn-navy btn-lg btn-block text-white"
+                className="btn btn-navy btn-lg text-white"
                 role="button"
                 onClick={this.toggle}
               >
@@ -143,7 +143,7 @@ class Info extends Component {
                           onClick={this.clicked}
                         >
                           Voting Record
-                        </button>{' '}
+                        </button>{" "}
                         <button
                           className="btn btn-danger"
                           type="button"
@@ -153,7 +153,7 @@ class Info extends Component {
                           aria-controls={`pressReleases${index}`}
                         >
                           Press Releases
-                        </button>{' '}
+                        </button>{" "}
                         <button
                           className="btn btn-danger"
                           type="button"
@@ -218,16 +218,16 @@ class Info extends Component {
           >
             <ModalHeader
               toggle={this.toggle}
-              className="col-12 modal-title text-center"
+              className="modal-title text-center"
             >
-              <strong>*** VOTER FRAUD ALERT ***</strong>{' '}
+              <strong>VOTER FRAUD ALERT</strong>
             </ModalHeader>
-            <ModalBody>
-              ⚠️{' '}
+            <ModalBody className="text-center">
+              ⚠️{" "}
               <strong>
                 WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
                 EVEN THINK ABOUT IT!!!
-              </strong>{' '}
+              </strong>{" "}
               ⚠️
               <img src="https://lishacauthen.files.wordpress.com/2013/04/dog_shaking_finger.gif" />
             </ModalBody>
