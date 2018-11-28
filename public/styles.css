@@ -37,6 +37,10 @@ html {
   font-size: 10vw;
 }
 
+.modal-title {
+  margin: 0 auto;
+}
+
 .press-releases {
   text-align: justify;
 }
