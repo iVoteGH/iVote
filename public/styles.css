@@ -8,11 +8,30 @@ html {
 }
 
 #navbar a:hover {
-  color: yellow;
+  color: blue;
 }
 #navbar a:active {
   color: blue;
 }
+#navbar-brand a:focus {
+  color: blue;
+}
+
+/*
+#navbar a {
+  color: #fff;
+  transition: 0.3s red;
+}
+#nav a.hover {
+  background-color: purple;
+}
+
+#nav a.active {
+  background-color: black;
+  color: green;
+  cursor: default;
+} */
+
 .row {
   padding: 10px;
 }
@@ -144,4 +163,16 @@ html {
   margin-left: auto;
   margin-right: auto;
   /* width: 50%; */
+}
+.addCandList {
+  justify-content: left;
+}
+
+.voteRow:hover {
+  background-color: rgba(3, 3, 128, 0.413);
+  color: white;
+}
+.voteRow:active {
+  background-color: rgba(255, 0, 0, 0.33);
+  color: white;
 }

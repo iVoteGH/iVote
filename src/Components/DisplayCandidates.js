@@ -7,7 +7,7 @@ import { Waiting, MetaMaskWarning } from '.';
 import HOC from './HOC';
 
 const Msg = () => (
-  <div> Congrats! You've almost saved democracy! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
+  <div> Congrats! You've almost saved democracy! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 </div>
 );
 
 class DisplayCandidates extends Component {
@@ -58,8 +58,14 @@ class DisplayCandidates extends Component {
             <br />
             <br />
             <h2>Select a Candidate</h2>
-            <table className="table table-hover">
-              <thead className="thead-dark">
+            <h5>Click on a candidate's name to make your selection.</h5>
+            <h5>
+              {' '}
+              When you have chosen your candidate, click on the "Vote For"
+              button.
+            </h5>
+            <table className="table ">
+              <thead className="bg-primary text-white">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
@@ -69,6 +75,7 @@ class DisplayCandidates extends Component {
               <tbody>
                 {this.props.candidates.map(candidate => (
                   <tr
+                    className="voteRow"
                     key={candidate[0].toString()}
                     onClick={() =>
                       this.setState({
@@ -87,7 +94,7 @@ class DisplayCandidates extends Component {
             {this.state.selectedCandidate ? (
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-navy btn-lg text-white"
                 onClick={() => {
                   this.props.castVote(this.state.selectedCandidate);
                   this.setState({ cast: true });
@@ -96,7 +103,15 @@ class DisplayCandidates extends Component {
               >
                 Vote for {this.state.candidateName}
               </button>
-            ) : null}
+            ) : (
+              <button
+                type="button"
+                className="btn btn-secondary btn-lg"
+                disabled
+              >
+                Vote for ...
+              </button>
+            )}
           </div>
         ) : (
           <h1>Loading...</h1>
