@@ -15,7 +15,10 @@ const Main = props => {
                 </h1>
               </div>
             </Link>
-            <Link to="/instructions">I<button>nstructions</button></Link>
+            <Link to="/instructions"><button type="button" className="btn btn-danger btn-lg">Instructions on How to Vote</button></Link>
+            <br />
+            <br />
+            <Link to="/"><button type="button" className="btn btn-danger btn-lg">Why Blockchain?</button></Link>
           </div>
         ))}
       </div>
