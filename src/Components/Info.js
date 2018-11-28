@@ -69,27 +69,32 @@ class Info extends Component {
         </p>
         <div className="card-deck">
           {this.props.candidates.map((candidate, index) => (
-            <div className="row col-sm-6">
+            <div className="row col-sm-6 ">
               <div className="col-md-12">
-                <div className="card" id="cardHeading">
+                <div className="card bg-primary candidate-card" id="cardHeading">
                   <div className="card-header" id={`heading${index}`}>
-                    <h5 className="mb-0">
+                    <h5 className="mb-0 candidate-name-heading">
                       <button
-                        className="btn btn-link text-black"
+                        className="btn btn-link text-black candidate-info-card"
                         data-toggle="collapse"
                         data-target={`#collapse${index}`}
                         aria-expanded="false"
                         aria-controls={`collapse${index}`}
                       >
+                      <PartyIcon
+                          candidate={candidate[1]}
+                          state={candidate[3]}
+                        />
                         <Headshot
                           candidate={candidate[1]}
                           state={candidate[3]}
                         />
-                        {candidate[1]}
                         <PartyIcon
                           candidate={candidate[1]}
                           state={candidate[3]}
                         />
+                        <p>{candidate[1]}</p>
+                        
                       </button>
                     </h5>
                   </div>
@@ -99,7 +104,7 @@ class Info extends Component {
                   className="collapse hide"
                   aria-labelledby={`heading${index}`}
                 >
-                  <div className="card-body">
+                  <div className="card-body scroll">
                     <p>Current Vote Count: {candidate[2].toString()}</p>
                     <p>
                       <button
