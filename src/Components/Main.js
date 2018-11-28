@@ -30,7 +30,7 @@ const Main = props => {
             <br />
             <Link to="/instructions">
               <button type="button" className="btn btn-danger btn-lg">
-                Instructions on How to Vote
+                <strong>Instructions on How to Vote</strong>
               </button>
             </Link>
             <br />

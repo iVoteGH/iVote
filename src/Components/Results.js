@@ -20,11 +20,7 @@ class Results extends Component {
         <br />
         <h1>
           <img src="DNC.png" height="50px" />
-          <strong>
-            {' '}
-            Live 2020 <span className="text-danger">Fantasy</span> Election
-            Draft Vote Count{' '}
-          </strong>
+          <strong> Live 2020 Fantasy Election Draft Vote Count </strong>
           <img src="GOP.png" height="50px" />
         </h1>
         {data[0] ? (
