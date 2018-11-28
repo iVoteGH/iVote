@@ -8,7 +8,8 @@ import {
   AdminPage,
   Navbar,
   Footer,
-  InstructionsPage
+  InstructionsPage,
+  BlockchainInfo,
 } from './Components';
 
 const Root = () => {
@@ -21,10 +22,11 @@ const Root = () => {
             <Switch>
               <Route exact path="/" component={Main} />
               <Route exact path="/info" component={Info} />
+              <Route exact path="/blockchain" component={BlockchainInfo} />
               <Route exact path="/vote" component={Vote} />
               <Route exact path="/results" component={Results} />
               <Route exact path="/admin" component={AdminPage} />
-              <Route exact path="/instructions" component={InstructionsPage}/>
+              <Route exact path="/instructions" component={InstructionsPage} />
             </Switch>
           </div>
         </main>

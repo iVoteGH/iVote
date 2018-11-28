@@ -167,7 +167,6 @@ html {
 .addCandList {
   justify-content: left;
 }
-
 .voteRow:hover {
   background-color: rgba(3, 3, 128, 0.413);
   color: white;
