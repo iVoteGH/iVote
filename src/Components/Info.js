@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import HOC from './HOC';
-import axios from 'axios';
 import {
   VotingRecordAPI,
   PressReleasesAPI,
@@ -21,25 +20,6 @@ class Info extends Component {
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
   }
-  async somethingTemp() {
-    let memId;
-    let response = await axios.get(`/api/memId/${this.props.state}`);
-    let candidateName1 =
-      response.data.results[0].first_name +
-      ' ' +
-      response.data.results[0].last_name;
-    let candidateName2 =
-      response.data.results[1].first_name +
-      ' ' +
-      response.data.results[1].last_name;
-    if (candidateName1 === this.props.candidate) {
-      memId = response.data.results[0].id;
-    } else if (candidateName2 === this.props.candidate) {
-      memId = response.data.results[1].id;
-    }
-    const member = await axios.get(`/api/members/${memId}`);
-    const party = member.data.results[0].current_party;
-  }
 
   toggle() {
     this.setState({ modal: !this.state.modal });
@@ -59,6 +39,11 @@ class Info extends Component {
     return (
       <div>
         <br />
+        <img
+          src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
+          id="candidatesImg"
+        />
+        <h2>Meet the candidates below and when you're ready...</h2>
         <div>
           <div>
             {!this.props.votedStatus ? (
@@ -67,11 +52,11 @@ class Info extends Component {
                 role="button"
                 href="/vote"
               >
-                Click Here to Go Vote!
+                <strong>🇺🇸 Click Here to Go Vote! 🇺🇸</strong>
               </a>
             ) : (
               <a
-                className="btn btn-navy btn-lg btn-block text-white"
+                className="btn btn-navy btn-lg text-white"
                 role="button"
                 onClick={this.toggle}
               >
@@ -79,22 +64,12 @@ class Info extends Component {
               </a>
             )}
           </div>
-          <br />
-          <div>
-            <a className="btn btn-primary btn-lg" role="button" href="/results">
-              Results
-            </a>
-          </div>
         </div>
         <br />
-        <img
-          src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
-          id="candidatesImg"
-        />
-        <p>
-          Explore vote leanings, press releases, and news sources about each
-          candidate
-        </p>
+        <h5>
+          Click on a candidate to explore vote leanings, press releases, and
+          news sources about each candidate.
+        </h5>
         <div className="card-deck">
           {this.props.candidates.map((candidate, index) => (
             <div className="row col-sm-6 ">
@@ -224,11 +199,11 @@ class Info extends Component {
           >
             <ModalHeader
               toggle={this.toggle}
-              className="col-12 modal-title text-center"
+              className="modal-title text-center"
             >
-              <strong>*** VOTER FRAUD ALERT ***</strong>{' '}
+              <strong>VOTER FRAUD ALERT</strong>
             </ModalHeader>
-            <ModalBody>
+            <ModalBody className="text-center">
               ⚠️{' '}
               <strong>
                 WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
