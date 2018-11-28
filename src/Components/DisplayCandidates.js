@@ -7,7 +7,7 @@ import { Waiting, MetaMaskWarning } from '.';
 import HOC from './HOC';
 
 const Msg = () => (
-  <div> Congrats! You've almost saved democracy! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 😎 </div>
+  <div> Congrats! You've almost saved democracy! 😀 🗳️ 🦅 🗽 🎉 🔔 🇺🇸 </div>
 );
 
 class DisplayCandidates extends Component {
