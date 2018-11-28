@@ -1,33 +1,7 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: Chakra Petch !important;
-  font-weight: 700;
-}
 body,
 html {
   font-family: Chakra Petch !important;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px;
-  overflow-x: hidden;
 }
-
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: Chakra Petch, Merriweather, 'Helvetica Neue', Arial, sans-serif;
-} */
 
 #navbar {
   height: 2.5rem;
@@ -35,6 +9,26 @@ html {
 
 .row {
   padding: 10px;
+}
+
+#main {
+  margin-top: 2.5em;
+  background: url(./bg3.jpg) center center fixed;
+  background-size: contains;
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#main h1 {
+  padding: 0.75em;
+  font-size: 10vw;
 }
 
 .press-releases {
@@ -45,55 +39,6 @@ html {
   width: 600px;
 }
 
-#main {
-  background-color: red;
-}
-
-header.masthead {
-  /* height: 100vh;
-  width: 100vh;
-  /* no-repeat center center fixed */
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover; */
-  /* background-repeat: no-repeat; */
-  height: calc(100vh - 2.5rem);
-  background: url(./bg3.jpg);
-  background-size: contain;
-}
-
-header.masthead hr {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-header.masthead h1 {
-  font-size: 2rem;
-}
-header.masthead p {
-  font-weight: 300;
-}
-/* @media (min-width: 768px) {
-  header.masthead p {
-    font-size: 1.15rem;
-  }
-}
-@media (min-width: 992px) {
-  header.masthead {
-    height: 100vh;
-    min-height: 650px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  header.masthead h1 {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 1200px) {
-  header.masthead h1 {
-    font-size: 4rem;
-    font-family: "Chakra Petch";
-  }
-} */
 .card-deck {
   justify-content: center;
 }
