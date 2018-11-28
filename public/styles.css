@@ -8,7 +8,7 @@ html {
 }
 
 #navbar a:hover {
-  color: yellow;
+  color: blue;
 }
 #navbar a:active {
   color: blue;
