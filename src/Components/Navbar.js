@@ -8,23 +8,17 @@ const Navbar = props => {
         className="navbar navbar-expand-lg navbar-dark bg-danger text-white"
         id="navbar"
       >
-        <li className="nav-item active">
-          <a className="navbar-brand active" href="/">
-            Home<span className="sr-only">(current)</span>
-          </a>
-        </li>
-        <li className="nav-item active">
-          <a className="navbar-brand active" href="/info">
-            Candidates
-          </a>
-        </li>
-        <li className="nav-item active">
-          <a className="navbar-brand active" href="/results">
-            Results
-          </a>
-        </li>
+        <a className="navbar-brand" href="/">
+          Home<span className="sr-only">(current)</span>
+        </a>
+        <a className="navbar-brand" href="/info">
+          Candidates
+        </a>
+        <a className="navbar-brand" href="/results">
+          Results
+        </a>
         {props.adminStatus ? (
-          <a className="navbar-brand active" href="/admin">
+          <a className="navbar-brand" href="/admin">
             Admin
           </a>
         ) : null}

@@ -5,9 +5,9 @@ import {
   PressReleasesAPI,
   NewsAPI,
   Headshot,
-  PartyIcon
-} from ".";
-import { Modal, ModalHeader, ModalBody } from "reactstrap";
+  PartyIcon,
+} from '.';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class Info extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Info extends Component {
     this.state = {
       buttonToggles: [],
       didClick: {},
-      modal: false
+      modal: false,
     };
     this.clicked = this.clicked.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -39,6 +39,11 @@ class Info extends Component {
     return (
       <div>
         <br />
+        <img
+          src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
+          id="candidatesImg"
+        />
+        <h2>Meet the candidates below and when you're ready...</h2>
         <div>
           <div>
             {!this.props.votedStatus ? (
@@ -47,7 +52,7 @@ class Info extends Component {
                 role="button"
                 href="/vote"
               >
-                Click Here to Go Vote!
+                <strong>🇺🇸 Click Here to Go Vote! 🇺🇸</strong>
               </a>
             ) : (
               <a
@@ -61,14 +66,10 @@ class Info extends Component {
           </div>
         </div>
         <br />
-        <img
-          src="https://i0.wp.com/www.e3radio.org/wp-content/uploads/2018/02/Meet-Candidates-Button_54020212-1507765977.jpg?fit=900%2C600&ssl=1"
-          id="candidatesImg"
-        />
-        <p>
-          Explore vote leanings, press releases, and news sources about each
-          candidate
-        </p>
+        <h5>
+          Click on a candidate to explore vote leanings, press releases, and
+          news sources about each candidate.
+        </h5>
         <div className="card-deck">
           {this.props.candidates.map((candidate, index) => (
             <div className="row col-sm-6 ">
@@ -123,7 +124,7 @@ class Info extends Component {
                           onClick={this.clicked}
                         >
                           Voting Record
-                        </button>{" "}
+                        </button>{' '}
                         <button
                           className="btn btn-danger"
                           type="button"
@@ -133,7 +134,7 @@ class Info extends Component {
                           aria-controls={`pressReleases${index}`}
                         >
                           Press Releases
-                        </button>{" "}
+                        </button>{' '}
                         <button
                           className="btn btn-danger"
                           type="button"
@@ -203,11 +204,11 @@ class Info extends Component {
               <strong>VOTER FRAUD ALERT</strong>
             </ModalHeader>
             <ModalBody className="text-center">
-              ⚠️{" "}
+              ⚠️{' '}
               <strong>
                 WARNING!!! VOTER FRAUD ALERT!!! YOU HAVE ALREADY VOTED...DON'T
                 EVEN THINK ABOUT IT!!!
-              </strong>{" "}
+              </strong>{' '}
               ⚠️
               <img src="https://lishacauthen.files.wordpress.com/2013/04/dog_shaking_finger.gif" />
             </ModalBody>
