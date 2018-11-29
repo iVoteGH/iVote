@@ -32,6 +32,10 @@ html {
   cursor: default;
 } */
 
+.table-addCandidates {
+  padding: 50px;
+}
+
 .row {
   padding: 10px;
 }
@@ -187,7 +191,7 @@ html {
   box-sizing: content-box;
   padding: 20px;
   border: none;
-  font: normal 175px/1 "Monoton", Helvetica, sans-serif;
+  font: normal 175px/1 'Monoton', Helvetica, sans-serif;
   color: rgba(255, 255, 255, 1);
   text-align: center;
   -o-text-overflow: ellipsis;
