@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const InstructionsPage = () => {
   return (
@@ -16,7 +16,6 @@ const InstructionsPage = () => {
         <br />
         <br />
         <br />
-   
 
         <div className="container-fluid">
             <div className="card-group">
@@ -94,6 +93,7 @@ const InstructionsPage = () => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
