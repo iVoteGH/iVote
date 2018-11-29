@@ -1,26 +1,26 @@
-import React, { Component } from "react";
-import HOC from "./HOC";
-import NavLink from "./NavLink";
+import React, { Component } from 'react';
+import HOC from './HOC';
+import NavLink from './NavLink';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       links: [
-        { path: "/", text: "Home", isActive: false },
-        { path: "/instructions", text: "Instructions", isActive: false },
-        { path: "/blockchain", text: "Blockchain", isActive: false },
-        { path: "/info", text: "Candidates", isActive: false },
-        { path: "/results", text: "Results", isActive: false }
+        { path: '/', text: 'Home', isActive: false },
+        { path: '/instructions', text: 'Instructions', isActive: false },
+        { path: '/info', text: 'Candidates', isActive: false },
+        { path: '/results', text: 'Results', isActive: false },
+        { path: '/blockchain', text: 'Blockchain', isActive: false },
       ],
       adminLinks: [
-        { path: "/", text: "Home", isActive: false },
-        { path: "/instructions", text: "Instructions", isActive: false },
-        { path: "/blockchain", text: "Blockchain", isActive: false },
-        { path: "/info", text: "Candidates", isActive: false },
-        { path: "/results", text: "Results", isActive: false },
-        { path: "/admin", text: "Admin", isActive: false }
-      ]
+        { path: '/', text: 'Home', isActive: false },
+        { path: '/instructions', text: 'Instructions', isActive: false },
+        { path: '/info', text: 'Candidates', isActive: false },
+        { path: '/results', text: 'Results', isActive: false },
+        { path: '/blockchain', text: 'Blockchain', isActive: false },
+        { path: '/admin', text: 'Admin', isActive: false },
+      ],
     };
   }
 
