@@ -53,7 +53,7 @@ class NewsAPI extends Component {
                 <div>
                   <p className="press-releases">
                     <img src={art.urlToImage} height="50" />{' '}
-                    <a href={art.url}>{art.title}</a> <br />
+                    <a href={art.url} target="_blank">{art.title}</a> <br />
                     <small>{Date(art.publishedAt).slice(0, 15)}</small>
                   </p>
                 </div>
@@ -89,7 +89,7 @@ class NewsAPI extends Component {
                 <div>
                   <p className="press-releases">
                     <img src={art.urlToImage} height="50" />{' '}
-                    <a href={art.url}>{art.title}</a> <br />
+                    <a href={art.url} target="_blank">{art.title}</a> <br />
                     <small>{Date(art.publishedAt).slice(0, 15)}</small>
                   </p>
                 </div>
@@ -125,7 +125,7 @@ class NewsAPI extends Component {
                 <div>
                   <p className="press-releases">
                     <img src={art.urlToImage} height="50" />{' '}
-                    <a href={art.url}>{art.title}</a> <br />
+                    <a href={art.url} target="_blank">{art.title}</a> <br />
                     <small>{Date(art.publishedAt).slice(0, 15)}</small>
                   </p>
                 </div>
