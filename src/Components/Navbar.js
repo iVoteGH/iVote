@@ -1,28 +1,44 @@
-import React, { Component } from 'react';
-import HOC from './HOC';
-import NavLink from './NavLink';
+import React, { Component } from "react";
+import HOC from "./HOC";
+import NavLink from "./NavLink";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       links: [
-        { path: '/', text: 'Home', isActive: false },
-        { path: '/instructions', text: 'Instructions', isActive: false },
-        { path: '/info', text: 'Candidates', isActive: false },
-        { path: '/results', text: 'Results', isActive: false },
-        { path: '/blockchain', text: 'Blockchain', isActive: false },
+        { path: "/", text: "Home", isActive: false },
+        { path: "/instructions", text: "Instructions", isActive: false },
+        { path: "/info", text: "Candidates", isActive: false },
+        { path: "/results", text: "Results", isActive: false },
+        { path: "/blockchain", text: "Blockchain", isActive: false }
       ],
       adminLinks: [
-        { path: '/', text: 'Home', isActive: false },
-        { path: '/instructions', text: 'Instructions', isActive: false },
-        { path: '/info', text: 'Candidates', isActive: false },
-        { path: '/results', text: 'Results', isActive: false },
-        { path: '/blockchain', text: 'Blockchain', isActive: false },
-        { path: '/admin', text: 'Admin', isActive: false },
-      ],
+        { path: "/", text: "Home", isActive: false },
+        { path: "/instructions", text: "Instructions", isActive: false },
+        { path: "/info", text: "Candidates", isActive: false },
+        { path: "/results", text: "Results", isActive: false },
+        { path: "/blockchain", text: "Blockchain", isActive: false },
+        { path: "/admin", text: "Admin", isActive: false }
+      ]
     };
   }
+  // componentWillMount() {
+  //   console.log("link", window.location.pathname);
+  //   const i = window.location.pathname;
+  //   console.log("i", i);
+  //   const links = this.state.links.slice();
+  //   for (const j in links) {
+  //     if (links[j].path == i) {
+  //       console.log("links true", links[j]);
+  //       links[j].isActive = true;
+  //     } else {
+  //       links[j].isActive = false;
+  //       console.log("links false", links[j]);
+  //     }
+  //   }
+  //   this.setState({ links: links });
+  // }
 
   handleClick(i) {
     const links = this.state.links.slice();

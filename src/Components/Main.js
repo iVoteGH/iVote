@@ -1,13 +1,11 @@
-import React from 'react';
-import HOC from './HOC';
-import { Link } from 'react-router-dom';
+import React from "react";
+import HOC from "./HOC";
+import { Link } from "react-router-dom";
 
 const Main = props => {
   return (
     <div className="masthead text-center">
       <div id="main">
-        <br />
-        <br />
         <br />
         <br />
         <br />
@@ -25,13 +23,11 @@ const Main = props => {
             />
             <br />
             <br />
-            <br />
             <Link to="/info">
               <button type="button" className="btn btn-danger btn-lg">
                 <strong>🇺🇸 GO VOTE 🇺🇸</strong>
               </button>
             </Link>
-            <br />
             <br />
             <br />
             <Link to="/instructions">
