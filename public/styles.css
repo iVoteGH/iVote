@@ -12,7 +12,7 @@ html {
 }
 
 #navbar a:hover {
-  color: yellow !important;
+  color: blue !important;
 }
 
 #navbar a:active {
