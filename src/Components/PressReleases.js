@@ -7,7 +7,7 @@ const PressReleases = props => {
       <div className="container">
         {props.pressReleases.map((release, i) => (
           <p key={i} className="press-releases">
-            <a href={release.url}>{release.title}</a>
+            <a href={release.url} target="_blank">{release.title}</a>
           </p>
         ))}
       </div>

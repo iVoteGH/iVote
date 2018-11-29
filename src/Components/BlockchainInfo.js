@@ -49,19 +49,19 @@ const BlockchainInfo = () => {
         counted and accurate.
       </p>
       <br />
-      <Link to="/info">
+      <Link to="/">
         <button type="button" className="btn btn-navy btn-lg text-white">
-          <strong>View Candidates!</strong>
+          <strong>Home</strong>
         </button>
       </Link>
       <br />
       <br />
-      <br />
+      {/* <br />
       <Link to="/instructions">
         <button type="button" className="btn btn-navy btn-lg text-white">
           <strong>Back to Instructions!</strong>
         </button>
-      </Link>
+      </Link> */}
     </div>
   );
 };

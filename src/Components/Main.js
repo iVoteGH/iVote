@@ -26,15 +26,25 @@ const Main = props => {
             <br />
             <br />
             <br />
+            <Link to="/info">
+              <button type="button" className="btn btn-danger btn-lg">
+                <strong>🇺🇸 GO VOTE 🇺🇸</strong>
+              </button>
+            </Link>
             <br />
             <br />
             <Link to="/instructions">
-              <button type="button" className="btn btn-danger btn-lg">
+              <button type="button" className="btn btn-danger btn-md">
                 <strong>Instructions on How to Vote</strong>
               </button>
             </Link>
             <br />
             <br />
+            <Link to="/blockchain">
+              <button type="button" className="btn btn-danger btn-md">
+                <strong>Why Blockchain?</strong>
+              </button>
+            </Link>
           </div>
         ))}
       </div>
