@@ -205,24 +205,34 @@ class AdminPage extends Component {
         <button className="btn btn-primary" onClick={this.addCandidates}>
           Add {this.state.selectedCandidates.length} Candidates
         </button>
-
-        <div>
+        <div className="justify-content-center">
           <p>Candidates to Add</p>
-          <ul className="addCandList">
-            {this.state.selectedCandidates.map(candidate => (
-              <li>
-                {candidate.candidate}{' '}
-                <button
-                  className="btn btn-primary btn-sm"
-                  onClick={() => this.toRemoveCanidate(candidate)}
-                >
-                  X
-                </button>
-              </li>
-            ))}
-          </ul>
+          {this.state.selectedCandidates.length ? (
+            <table className="table table-sm table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.selectedCandidates.map(candidate => (
+                  <tr>
+                    <td>{candidate.candidate} </td>
+                    <td>
+                      <button
+                        className="btn btn-primary btn-sm"
+                        onClick={() => this.toRemoveCanidate(candidate)}
+                      >
+                        X
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : null}
         </div>
-
         <table className="table table-hover">
           <thead>
             <tr>
