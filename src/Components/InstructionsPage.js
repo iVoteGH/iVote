@@ -43,13 +43,6 @@ const InstructionsPage = () => {
                 className="center"
               />
             </div>
-            {/* <div className="card text-white bg-secondary" style={{width: 22 + 'rem', height: 25 + 'rem', margin: 2.5 + 'px'}}>
-                    <p><strong>STEP 2 </strong></p>
-                    <div className="card-text">
-                        <p>Navigate to the Candidates page</p>
-                    </div>
-                    <img src="step2.gif" height="250px" width="200px" className="center"/>
-                </div>   */}
             <div
               className="card text-white bg-secondary"
               style={{
@@ -138,14 +131,6 @@ const InstructionsPage = () => {
                 className="center"
               />
             </div>
-
-            {/* <div className="card text-white bg-secondary" style={{width: 22 + 'rem', height: 25 + 'rem', margin: 2.5 + 'px'}}>
-                    <p><strong>STEP 7</strong></p>
-                    <div className="card-text">
-                        <p>You should get a success pop-up when the transaction has been approved</p>
-                    </div>
-                    <img src="step7.gif" className="center" width="300px"/>
-                </div> */}
             <div
               className="card text-white bg-secondary"
               style={{
@@ -165,15 +150,6 @@ const InstructionsPage = () => {
               </div>
               <img src="results.gif" className="center" />
             </div>
-            {/* <div className="card text-white bg-secondary" style={{width: 22 + 'rem', height: 25 + 'rem', margin: 2.5 + 'px'}}>
-                    <p><strong>GO MEET THE CANDIDATES</strong></p>
-                    <div className="card-text">
-                        <p>Click below to</p><p> Get Started and Meet the Candidates!</p>
-                    </div>
-                    <Link to="/info">
-                    <button type="button" className="btn btn-navy btn-sm" style={{color: "white"}}>🇺🇸 Click Here to Meet the Candidates🇺🇸</button>
-                    </Link>
-                </div> */}
           </div>
         </div>
       </div>

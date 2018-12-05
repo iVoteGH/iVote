@@ -156,7 +156,6 @@ class Info extends Component {
                       >
                         <div className="card card-body">
                           <VotingRecordAPI
-                            // didClick={this.state.didClick[index]}
                             candidate={candidate[1]}
                             state={candidate[3]}
                           />

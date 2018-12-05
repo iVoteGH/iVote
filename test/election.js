@@ -9,7 +9,7 @@ contract('Election', function(accounts) {
         return instance.candidatesCount();
       })
       .then(function(count) {
-        assert.equal(count, 2);
+        assert.equal(count, 6);
       });
   });
 
@@ -21,14 +21,14 @@ contract('Election', function(accounts) {
       })
       .then(function(candidate) {
         assert.equal(candidate[0], 1, 'contains the correct id');
-        assert.equal(candidate[1], 'Candidate 1', 'contains the correct name');
-        assert.equal(candidate[2], 0, 'contains the correct vote count');
+        assert.equal(candidate[1], 'Kamala Harris', 'contains the correct name');
+        assert.equal(candidate[2], 3, 'contains the correct vote count');
         return electionInstance.candidates(2);
       })
       .then(function(candidate) {
         assert.equal(candidate[0], 2, 'contains the correct id');
-        assert.equal(candidate[1], 'Candidate 2', 'contains the correct name');
-        assert.equal(candidate[2], 0, 'contains the correct vote count');
+        assert.equal(candidate[1], 'Ted Cruz', 'contains the correct name');
+        assert.equal(candidate[2], 3, 'contains the correct vote count');
       });
   });
 
@@ -59,7 +59,7 @@ contract('Election', function(accounts) {
       })
       .then(function(candidate) {
         var voteCount = candidate[2];
-        assert.equal(voteCount, 1, "increments the candidate's vote count");
+        assert.equal(voteCount, 4, "increments the candidate's vote count");
       });
   });
 
@@ -79,12 +79,12 @@ contract('Election', function(accounts) {
       })
       .then(function(candidate1) {
         var voteCount = candidate1[2];
-        assert.equal(voteCount, 1, 'candidate 1 did not receive any votes');
+        assert.equal(voteCount, 4, 'candidate 1 did not receive any votes');
         return electionInstance.candidates(2);
       })
       .then(function(candidate2) {
         var voteCount = candidate2[2];
-        assert.equal(voteCount, 0, 'candidate 2 did not receive any votes');
+        assert.equal(voteCount, 3, 'candidate 2 did not receive any votes');
       });
   });
 
@@ -98,7 +98,7 @@ contract('Election', function(accounts) {
       })
       .then(function(candidate) {
         var voteCount = candidate[2];
-        assert.equal(voteCount, 1, 'accepts first vote');
+        assert.equal(voteCount, 4, 'accepts first vote');
         // Try to vote again
         return electionInstance.vote(candidateId, { from: accounts[1] });
       })
@@ -112,12 +112,12 @@ contract('Election', function(accounts) {
       })
       .then(function(candidate1) {
         var voteCount = candidate1[2];
-        assert.equal(voteCount, 1, 'candidate 1 did not receive any votes');
+        assert.equal(voteCount, 4, 'candidate 1 did not receive any votes');
         return electionInstance.candidates(2);
       })
       .then(function(candidate2) {
         var voteCount = candidate2[2];
-        assert.equal(voteCount, 1, 'candidate 2 did not receive any votes');
+        assert.equal(voteCount, 4, 'candidate 2 did not receive any votes');
       });
   });
 });
