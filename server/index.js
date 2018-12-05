@@ -110,11 +110,10 @@ app.post('/api/messages', (req, res) => {
       to: number,
     })
     .then(() => {
-      console.log('Messages sent!');
       res.send(JSON.stringify({ success: true }));
     })
     .catch(err => {
-      console.log(err);
+      console.error(err);
       res.send(JSON.stringify({ success: false }));
     });
 });

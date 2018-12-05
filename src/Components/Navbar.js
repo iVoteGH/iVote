@@ -23,22 +23,7 @@ class Navbar extends Component {
       ]
     };
   }
-  // componentWillMount() {
-  //   console.log("link", window.location.pathname);
-  //   const i = window.location.pathname;
-  //   console.log("i", i);
-  //   const links = this.state.links.slice();
-  //   for (const j in links) {
-  //     if (links[j].path == i) {
-  //       console.log("links true", links[j]);
-  //       links[j].isActive = true;
-  //     } else {
-  //       links[j].isActive = false;
-  //       console.log("links false", links[j]);
-  //     }
-  //   }
-  //   this.setState({ links: links });
-  // }
+
 
   handleClick(i) {
     const links = this.state.links.slice();

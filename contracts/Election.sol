@@ -38,9 +38,7 @@ contract Election {
     }
 
     function addAdmins() private {
-        // addAdmin(0xc9Be7e69a60bc72d7a2837a7d444A5741227893c);
-        // addAdmin(0x67fd37f1078fDCB5FF9D85BacDb8a61aB9f89956);
-        addAdmin(0xbB6dCF8B2b02CbA75e5deDCB17A80897F2C9D7ed);
+        //call addAdmins(address) here, where address is account address of admin user 
     }
 
 

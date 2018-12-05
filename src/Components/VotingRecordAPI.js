@@ -46,14 +46,10 @@ class VotingRecordAPI extends Component {
   render() {
     return (
       <div>
-        {/* {this.props.didClick ? ( */}
         <VoteGraph
           libAgree={this.state.votingComparisons.libAgree}
           conAgree={this.state.votingComparisons.conAgree}
         />
-        {/* ) : (
-          " "
-        )} */}
       </div>
     );
   }

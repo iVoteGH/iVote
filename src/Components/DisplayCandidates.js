@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Table, thead, tr, th, tbody, td } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'whatwg-fetch';

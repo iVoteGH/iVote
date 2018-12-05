@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { VictoryBar, VictoryChart, VictoryLabel, VictoryAxis } from 'victory';
+import { VictoryBar, VictoryChart } from 'victory';
 import HOC from './HOC';
 
 class Results extends Component {
@@ -13,8 +13,6 @@ class Results extends Component {
         votes: candidate[2]['c'][0],
       });
     });
-
-    console.log(data);
     return (
       <div>
         <br />

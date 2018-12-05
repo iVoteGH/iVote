@@ -56,12 +56,6 @@ const BlockchainInfo = () => {
       </Link>
       <br />
       <br />
-      {/* <br />
-      <Link to="/instructions">
-        <button type="button" className="btn btn-navy btn-lg text-white">
-          <strong>Back to Instructions!</strong>
-        </button>
-      </Link> */}
     </div>
   );
 };
