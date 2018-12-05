@@ -106,8 +106,7 @@ app.post('/api/messages', (req, res) => {
     .create({
       body: body,
       from: from,
-      mediaUrl:
-        'https://sayingimages.com/wp-content/uploads/welcome-to-adult-life-congratulations-meme.png',
+      mediaUrl: 'https://media.giphy.com/media/McWY8InTbUrrW/giphy.gif',
       to: number,
     })
     .then(() => {
